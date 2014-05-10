@@ -5,30 +5,17 @@
  */
 package classes;
 
-import classes.CSVAcesso;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 /**
  *
  * @author ezefranca
  */
-public class Tela extends javax.swing.JFrame {
+public class TelaInicial extends javax.swing.JFrame {
     private String wPic;
 
     /**
      * Creates new form Tela
      */
-    public Tela() {
+    public TelaInicial() {
         initComponents();
         if(medicosCheck.isEnabled()){
             System.out.println("Medico selecionado");
@@ -196,6 +183,12 @@ public class Tela extends javax.swing.JFrame {
         CSVAcesso acesso = new CSVAcesso("/Users/ezefranca/NetBeansProjects/UBSPoo-EP3/src/classes/cadastro.csv", "true");
         acesso.parse();
         acesso.printData();
+        if(pacienteCheck.isSelected() && !medicosCheck.isSelected() && !enfermeiroCheck.isSelected()){
+            TelaPaciente paciente = new TelaPaciente();
+            paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);  
+            paciente.pack();  
+            paciente.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -215,13 +208,13 @@ public class Tela extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -229,7 +222,7 @@ public class Tela extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Tela().setVisible(true);
+                new TelaInicial().setVisible(true);
             }
         });
     
