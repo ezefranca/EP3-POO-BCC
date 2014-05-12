@@ -180,7 +180,8 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println("clicou");   
-        CSVAcesso acesso = new CSVAcesso("/Users/ezefranca/NetBeansProjects/UBSPoo-EP3/src/classes/cadastro.csv", "true");
+        //CSVAcesso acesso = new CSVAcesso("/Users/ezefranca/NetBeansProjects/UBSPoo-EP3/src/classes/cadastro.csv", "true");
+        CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         acesso.printData();
         if(pacienteCheck.isSelected() && !medicosCheck.isSelected() && !enfermeiroCheck.isSelected()){

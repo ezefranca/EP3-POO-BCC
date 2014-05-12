@@ -99,7 +99,7 @@ public class CSVAcesso {
     public void printData() {
 
         if (bHeaderRow) {
-            System.out.println("Column names:");
+            System.out.println("Coluna nomes:");
             for (int i=0; i < alColNames.size()-1; i++) {
                 System.out.print(alColNames.get(i) + ",");
             }
@@ -107,7 +107,7 @@ public class CSVAcesso {
             System.out.println();
         }
 
-        System.out.println("Data:");
+        System.out.println("Dados:");
         for (int i=0; i < alData.size(); i++) {
             ArrayList<String> al = alData.get(i);
             for (int j=0; j < al.size()-1; j++) {
