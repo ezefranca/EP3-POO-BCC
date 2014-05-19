@@ -16,7 +16,7 @@ import java.util.Arrays;
  *
  * @author ezefranca
  */
-public class CSVAcesso {
+public class CSVAcesso extends TelaInicial {
     
     private boolean bHeaderRow = false;
 
@@ -96,33 +96,40 @@ public class CSVAcesso {
     /*
      * Print the data nicely.
      */
-    public void printData() {
 
-        if (bHeaderRow) {
-            System.out.println("Coluna nomes:");
-            for (int i=0; i < alColNames.size()-1; i++) {
-                System.out.print(alColNames.get(i) + ",");
+    public void searchUser(javax.swing.JTextField jTextField1) { 
+        System.out.println("Buscando Usuário:");
+        for(int i=0; i < alData.size(); i++) {
+            ArrayList<String> user = alData.get(i);
+            for(int j=1; j < 2; j++) {
+                if(jTextField1.getText().equals(user.get(j))){
+                    System.out.println("Usuário Válido!");
+                }
             }
-            System.out.println(alColNames.get(alColNames.size()-1));
-            System.out.println();
-        }
-
-        System.out.println("Dados:");
-        for (int i=0; i < alData.size(); i++) {
-            ArrayList<String> al = alData.get(i);
-            for (int j=0; j < al.size()-1; j++) {
-                System.out.print(al.get(j) + ",");
-            }
-            System.out.println(al.get(al.size()-1));
-        }
+        }   
     }
+
+    public void searchPassword(javax.swing.JPasswordField JPasswordField1) { 
+        System.out.println("Buscando Senha:");
+        for(int i=0; i < alData.size(); i++) {
+            ArrayList<String> password = alData.get(i);
+            for(int j=2; j < 3; j++) {
+                if(JPasswordField1.getPassword().equals(password.get(i))){
+                    System.out.println("Usuário Senha!");
+                }
+            }
+        }   
+    }
+        
 
     /**
      * Main driver program.
      * 
      * @param args  the incoming arguments
+     * @param jTextField1
+     * @param JPasswordField1
      */
-    public static void main(String[] args) {
+    public static void main(String[] args, javax.swing.JTextField jTextField1, javax.swing.JPasswordField JPasswordField1) {
 
         if (args.length != 2) {
             System.out.println("usage: java CsvParser [full path filename] [true|false header row]");
@@ -131,7 +138,8 @@ public class CSVAcesso {
 
         CSVAcesso parser = new CSVAcesso(args[0], args[1]);
         parser.parse();
-        parser.printData();
+        parser.searchUser(jTextField1);
+        parser.searchPassword(JPasswordField1);
 
     }
 

@@ -1,5 +1,9 @@
-Name,Street,City,State,Zip,Phone
-John Smith,21 Pine Street,Detroit,Michigan,48126,111-222-3333
-Mary Jones,11 Red Avenue,Orlando,Florida,32801,222-444-6666
-Paul James,18 Main Street,Los Angeles,California,90004,555-222-1111
-Sara Roberts,32 Bourbon Street,Jackson,Mississipi,39201,999-222-7777
+Type,User,Password,Name
+Medico,jsmith,1111,John Smith
+Medico,mjones,2222,Mary Jones
+Dentista,pjames,3333,Paul James
+Dentista,efranca,4444,Ezequiel Franca
+Enfermeiro,sara,5555,Sara Roberts
+Enfermeiro,paulo,6666,Paulo Henrique
+Paciente,thomas,7777,Thomas Turbano
+Paciente,jpinto,8888,Jacinto Pinto

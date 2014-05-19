@@ -181,8 +181,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_pacienteCheckStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("clicou");
-        /*---------------------------------------------------------------------------*/
+        /*---------------------------------------------------------------------------
         BancoDados banco = new BancoDados();
         boolean checkUser = banco.buscaUser(this.jTextField1);
         boolean checkPass = banco.buscaSenha(this.jPasswordField1);
@@ -190,10 +189,11 @@ public class TelaInicial extends javax.swing.JFrame {
             System.out.println("Login efetuado com sucesso!");
         } else
             System.out.println("Dados de login inválidos!");
-        /*---------------------------------------------------------------------------*/
+        ---------------------------------------------------------------------------*/
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
-        acesso.printData();
+        acesso.searchUser(jTextField1);
+        acesso.searchPassword(this.jPasswordField1);
         if(pacienteCheck.isSelected() && !medicosCheck.isSelected() && !enfermeiroCheck.isSelected()){
             TelaPaciente paciente = new TelaPaciente();
             paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);  

@@ -1,5 +1,9 @@
-Nome,Funcao,ID,Datas
-Joao Santos,Medico,01, 20-05-2014
-Maria do Bairro,Dentista,02, 01-05-2014
-Paulo Maluf,Enfermeiro,03, 18-05-2014
-Rafael Bueno,Paciente,04, 17-05-2014
+Type,User,Password,Name
+Medico,jsmith,1111,John Smith
+Medico,mjones,2222,Mary Jones
+Dentista,pjames,3333,Paul James
+Dentista,efranca,4444,Ezequiel Franca
+Enfermeiro,sara,5555,Sara Roberts
+Enfermeiro,paulo,6666,Paulo Henrique
+Paciente,thomas,7777,Thomas Turbano
+Paciente,jpinto,8888,Jacinto Pinto
