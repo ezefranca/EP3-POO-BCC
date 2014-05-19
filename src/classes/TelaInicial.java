@@ -17,9 +17,6 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
-        if(medicosCheck.isEnabled()){
-            System.out.println("Medico selecionado");
-        }
     }
 
     /**
@@ -43,6 +40,11 @@ public class TelaInicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextField1.setText("Usuário");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jPasswordField1.setText("senha");
         jPasswordField1.setToolTipText("senha");
@@ -141,12 +143,12 @@ public class TelaInicial extends javax.swing.JFrame {
     private void medicosCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_medicosCheckStateChanged
        if(medicosCheck.isSelected()){
            System.out.println("Selecionou Medico");
-           enfermeiroCheck.setEnabled(false);
-           pacienteCheck.setEnabled(false);
+           enfermeiroCheck.setVisible(false);
+           pacienteCheck.setVisible(false);
        }
        else if(!medicosCheck.isSelected()){
-           enfermeiroCheck.setEnabled(true);
-           pacienteCheck.setEnabled(true);
+           enfermeiroCheck.setVisible(true);
+           pacienteCheck.setVisible(true);
        }
     }//GEN-LAST:event_medicosCheckStateChanged
 
@@ -157,30 +159,38 @@ public class TelaInicial extends javax.swing.JFrame {
     private void enfermeiroCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_enfermeiroCheckStateChanged
        if(enfermeiroCheck.isSelected()){
            System.out.println("Selecionou Enfermeiro");
-           medicosCheck.setEnabled(false);
-           pacienteCheck.setEnabled(false);
+           medicosCheck.setVisible(false);
+           pacienteCheck.setVisible(false);
        }
        else if(!enfermeiroCheck.isSelected()){
-           medicosCheck.setEnabled(true);
-           pacienteCheck.setEnabled(true);
+           medicosCheck.setVisible(true);
+           pacienteCheck.setVisible(true);
        }
     }//GEN-LAST:event_enfermeiroCheckStateChanged
 
     private void pacienteCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pacienteCheckStateChanged
         if(pacienteCheck.isSelected() && !medicosCheck.isSelected()&& !enfermeiroCheck.isSelected()){
            System.out.println("Selecionou Paciente");
-           enfermeiroCheck.setEnabled(false);
-           medicosCheck.setEnabled(false);
+           enfermeiroCheck.setVisible(false);
+           medicosCheck.setVisible(false);
        }
        else if(!pacienteCheck.isSelected()){
-           enfermeiroCheck.setEnabled(true);
-           medicosCheck.setEnabled(true);
+           enfermeiroCheck.setVisible(true);
+           medicosCheck.setVisible(true);
        }
     }//GEN-LAST:event_pacienteCheckStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("clicou");   
-        //CSVAcesso acesso = new CSVAcesso("/Users/ezefranca/NetBeansProjects/UBSPoo-EP3/src/classes/cadastro.csv", "true");
+        System.out.println("clicou");
+        /*---------------------------------------------------------------------------*/
+        BancoDados banco = new BancoDados();
+        boolean checkUser = banco.buscaUser(this.jTextField1);
+        boolean checkPass = banco.buscaSenha(this.jPasswordField1);
+        if(checkUser == true && checkPass == true){
+            System.out.println("Login efetuado com sucesso!");
+        } else
+            System.out.println("Dados de login inválidos!");
+        /*---------------------------------------------------------------------------*/
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         acesso.printData();
@@ -191,6 +201,10 @@ public class TelaInicial extends javax.swing.JFrame {
             paciente.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,8 +246,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
     
     }
-    
-    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
