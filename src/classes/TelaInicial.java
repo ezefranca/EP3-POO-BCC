@@ -27,14 +27,10 @@ public class TelaInicial extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        medicosCheck = new javax.swing.JCheckBox();
-        enfermeiroCheck = new javax.swing.JCheckBox();
-        pacienteCheck = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,36 +52,6 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        medicosCheck.setText("Médico");
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, medicosCheck, org.jdesktop.beansbinding.ELProperty.create("${selected}"), medicosCheck, org.jdesktop.beansbinding.BeanProperty.create("selected"));
-        bindingGroup.addBinding(binding);
-
-        medicosCheck.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                medicosCheckStateChanged(evt);
-            }
-        });
-
-        enfermeiroCheck.setText("Enfermeiro");
-        enfermeiroCheck.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                enfermeiroCheckStateChanged(evt);
-            }
-        });
-        enfermeiroCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enfermeiroCheckActionPerformed(evt);
-            }
-        });
-
-        pacienteCheck.setText("Paciente");
-        pacienteCheck.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pacienteCheckStateChanged(evt);
-            }
-        });
-
         jLabel1.setText("Gerenciador UBS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,22 +62,13 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap(197, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(99, 99, 99))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(48, 48, 48))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(medicosCheck)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(enfermeiroCheck)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pacienteCheck)))
-                        .addGap(177, 177, 177))
+                        .addComponent(jButton1)
+                        .addGap(276, 276, 276))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(225, 225, 225))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(250, 250, 250))))
@@ -127,78 +84,28 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(medicosCheck)
-                    .addComponent(enfermeiroCheck)
-                    .addComponent(pacienteCheck))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void medicosCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_medicosCheckStateChanged
-       if(medicosCheck.isSelected()){
-           System.out.println("Selecionou Medico");
-           enfermeiroCheck.setVisible(false);
-           pacienteCheck.setVisible(false);
-       }
-       else if(!medicosCheck.isSelected()){
-           enfermeiroCheck.setVisible(true);
-           pacienteCheck.setVisible(true);
-       }
-    }//GEN-LAST:event_medicosCheckStateChanged
-
-    private void enfermeiroCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enfermeiroCheckActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enfermeiroCheckActionPerformed
-
-    private void enfermeiroCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_enfermeiroCheckStateChanged
-       if(enfermeiroCheck.isSelected()){
-           System.out.println("Selecionou Enfermeiro");
-           medicosCheck.setVisible(false);
-           pacienteCheck.setVisible(false);
-       }
-       else if(!enfermeiroCheck.isSelected()){
-           medicosCheck.setVisible(true);
-           pacienteCheck.setVisible(true);
-       }
-    }//GEN-LAST:event_enfermeiroCheckStateChanged
-
-    private void pacienteCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pacienteCheckStateChanged
-        if(pacienteCheck.isSelected() && !medicosCheck.isSelected()&& !enfermeiroCheck.isSelected()){
-           System.out.println("Selecionou Paciente");
-           enfermeiroCheck.setVisible(false);
-           medicosCheck.setVisible(false);
-       }
-       else if(!pacienteCheck.isSelected()){
-           enfermeiroCheck.setVisible(true);
-           medicosCheck.setVisible(true);
-       }
-    }//GEN-LAST:event_pacienteCheckStateChanged
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /*---------------------------------------------------------------------------
-        BancoDados banco = new BancoDados();
-        boolean checkUser = banco.buscaUser(this.jTextField1);
-        boolean checkPass = banco.buscaSenha(this.jPasswordField1);
-        if(checkUser == true && checkPass == true){
-            System.out.println("Login efetuado com sucesso!");
-        } else
-            System.out.println("Dados de login inválidos!");
-        ---------------------------------------------------------------------------*/
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
-        acesso.searchUser(jTextField1);
-        acesso.searchPassword(this.jPasswordField1);
-        if(pacienteCheck.isSelected() && !medicosCheck.isSelected() && !enfermeiroCheck.isSelected()){
+        String userType = acesso.searchLogin(jTextField1, this.jPasswordField1);
+        System.out.println(userType);
+        if(userType.equals("Paciente")){
             TelaPaciente paciente = new TelaPaciente();
             paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);  
             paciente.pack();  
             paciente.setVisible(true);
+        } else if(userType.equals("Medico")){
+            System.out.println("Criar tela Medico!");
+        } else if(userType.equals("Dentista")) {
+            System.out.println("Criar tela Dentista!");
+        } else if(userType.equals("Enfermeiro")) {
+            System.out.println("Criar tela Enfermeiro!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -249,14 +156,10 @@ public class TelaInicial extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox enfermeiroCheck;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JCheckBox medicosCheck;
-    private javax.swing.JCheckBox pacienteCheck;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
     
   

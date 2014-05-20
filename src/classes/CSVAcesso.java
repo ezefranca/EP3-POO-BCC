@@ -97,30 +97,26 @@ public class CSVAcesso extends TelaInicial {
      * Print the data nicely.
      */
 
-    public void searchUser(javax.swing.JTextField jTextField1) { 
-        System.out.println("Buscando Usuário:");
+    public String searchLogin(javax.swing.JTextField jTextField1, javax.swing.JPasswordField JPasswordField1) { 
+        String checkLogin = "";
         for(int i=0; i < alData.size(); i++) {
             ArrayList<String> user = alData.get(i);
             for(int j=1; j < 2; j++) {
                 if(jTextField1.getText().equals(user.get(j))){
-                    System.out.println("Usuário Válido!");
+                    char[] cPassword = JPasswordField1.getPassword();
+                    String sPassword = String.valueOf(cPassword);
+                    if(sPassword.equals(user.get(j+1))){
+                        System.out.println("Login efetuado com sucesso!");
+                        checkLogin = user.get(0);
+                    }
                 }
             }
-        }   
-    }
-
-    public void searchPassword(javax.swing.JPasswordField JPasswordField1) { 
-        System.out.println("Buscando Senha:");
-        for(int i=0; i < alData.size(); i++) {
-            ArrayList<String> password = alData.get(i);
-            for(int j=2; j < 3; j++) {
-                if(JPasswordField1.getPassword().equals(password.get(i))){
-                    System.out.println("Usuário Senha!");
-                }
-            }
-        }   
-    }
+        }
+        if(checkLogin == "")
+           System.out.println("Usuário ou senha inválidos!");
         
+        return checkLogin;
+    }
 
     /**
      * Main driver program.
@@ -137,10 +133,6 @@ public class CSVAcesso extends TelaInicial {
         }
 
         CSVAcesso parser = new CSVAcesso(args[0], args[1]);
-        parser.parse();
-        parser.searchUser(jTextField1);
-        parser.searchPassword(JPasswordField1);
-
     }
 
     public boolean isHeaderRowPresent() {
