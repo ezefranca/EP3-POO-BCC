@@ -2,12 +2,13 @@ package classes;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
+import javax.swing.JDialog;
 
 /**
  *
  * @author Paulo
  */
-public class BancoDados {
+public class BancoDados extends TelaInicial {
     LinkedList<javax.swing.JTextField> listaUser = null;
     LinkedList<javax.swing.JPasswordField> listaSenha = null;
     
@@ -53,8 +54,9 @@ public class BancoDados {
                 checkSenha = true;
             }
         }
-        if(checkSenha == false)
+        if(checkSenha == false){
             System.out.println("Senha inválida!");
+        }
         return checkSenha;
     }    
 }

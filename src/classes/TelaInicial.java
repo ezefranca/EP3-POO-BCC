@@ -5,11 +5,19 @@
  */
 package classes;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ezefranca
  */
 public class TelaInicial extends javax.swing.JFrame {
+
     private String wPic;
 
     /**
@@ -28,12 +36,25 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema UBS - Paulo e Ezequiel");
 
         jTextField1.setText("Usuário");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +108,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap(152, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleDescription("EP-3, Paulo e Ezequiel");
+        getAccessibleContext().setAccessibleParent(this);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -95,17 +119,32 @@ public class TelaInicial extends javax.swing.JFrame {
         acesso.parse();
         String userType = acesso.searchLogin(jTextField1, this.jPasswordField1);
         System.out.println(userType);
-        if(userType.equals("Paciente")){
+        if (userType.equals("Paciente")) {
             TelaPaciente paciente = new TelaPaciente();
-            paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);  
-            paciente.pack();  
+            paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+            paciente.pack();
+            this.setVisible(false);
             paciente.setVisible(true);
-        } else if(userType.equals("Medico")){
-            System.out.println("Criar tela Medico!");
-        } else if(userType.equals("Dentista")) {
-            System.out.println("Criar tela Dentista!");
-        } else if(userType.equals("Enfermeiro")) {
-            System.out.println("Criar tela Enfermeiro!");
+        } else if (userType.equals("Medico")) {
+            TelaMedico medico = new TelaMedico();
+            medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+            medico.pack();
+            this.setVisible(false);
+            medico.setVisible(true);
+        } else if (userType.equals("Dentista")) {
+            TelaDentista dentista = new TelaDentista();
+            dentista.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+            dentista.pack();
+            this.setVisible(false);
+            dentista.setVisible(true);
+        } else if (userType.equals("Enfermeiro")) {
+            TelaEnfermeiro enfermeiro = new TelaEnfermeiro();
+            enfermeiro.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+            enfermeiro.pack();
+            this.setVisible(false);
+            enfermeiro.setVisible(true);
+        } else {
+            System.out.println("Usuario nao possui um tipo correto");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -147,20 +186,14 @@ public class TelaInicial extends javax.swing.JFrame {
                 new TelaInicial().setVisible(true);
             }
         });
-    
- 
-  
 
-    
     }
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-    
-  
+
 }
