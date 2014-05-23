@@ -117,34 +117,44 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
-        String userType = acesso.searchLogin(jTextField1, this.jPasswordField1);
-        System.out.println(userType);
-        if (userType.equals("Paciente")) {
-            TelaPaciente paciente = new TelaPaciente();
-            paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-            paciente.pack();
-            this.setVisible(false);
-            paciente.setVisible(true);
-        } else if (userType.equals("Medico")) {
-            TelaMedico medico = new TelaMedico();
-            medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-            medico.pack();
-            this.setVisible(false);
-            medico.setVisible(true);
-        } else if (userType.equals("Dentista")) {
-            TelaDentista dentista = new TelaDentista();
-            dentista.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-            dentista.pack();
-            this.setVisible(false);
-            dentista.setVisible(true);
-        } else if (userType.equals("Enfermeiro")) {
-            TelaEnfermeiro enfermeiro = new TelaEnfermeiro();
-            enfermeiro.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-            enfermeiro.pack();
-            this.setVisible(false);
-            enfermeiro.setVisible(true);
-        } else {
-            System.out.println("Usuario nao possui um tipo correto");
+        
+       
+
+        
+        String userDados[] = acesso.searchLogin(jTextField1, this.jPasswordField1);
+        System.out.println(userDados[0]);
+        switch (userDados[0]) {
+            case "Paciente":
+                TelaPaciente paciente = new TelaPaciente();
+                paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                paciente.pack();
+                this.setVisible(false);
+                paciente.setVisible(true);
+                break;
+            case "Medico":
+                TelaMedico medico = new TelaMedico(userDados[1]);
+                medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                medico.pack();
+                this.setVisible(false);
+                medico.setVisible(true);
+                break;
+            case "Dentista":
+                TelaDentista dentista = new TelaDentista();
+                dentista.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                dentista.pack();
+                this.setVisible(false);
+                dentista.setVisible(true);
+                break;
+            case "Enfermeiro":
+                TelaEnfermeiro enfermeiro = new TelaEnfermeiro();
+                enfermeiro.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                enfermeiro.pack();
+                this.setVisible(false);
+                enfermeiro.setVisible(true);
+                break;
+            default:
+                System.out.println("Usuario nao possui um tipo correto");
+                break;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

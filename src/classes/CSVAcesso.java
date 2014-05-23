@@ -152,8 +152,9 @@ public class CSVAcesso extends TelaInicial {
         /*
          * Print the data nicely.
          */
-        public String searchLogin(javax.swing.JTextField jTextField1, javax.swing.JPasswordField JPasswordField1) {
+        public String[] searchLogin(javax.swing.JTextField jTextField1, javax.swing.JPasswordField JPasswordField1) {
             String checkLogin = "";
+            String name = "";
             for (int i = 0; i < alData.size(); i++) {
                 ArrayList<String> user = alData.get(i);
                 for (int j = 1; j < 2; j++) {
@@ -163,6 +164,8 @@ public class CSVAcesso extends TelaInicial {
                         if (sPassword.equals(user.get(j + 1))) {
                             System.out.println("Login efetuado com sucesso!");
                             checkLogin = user.get(0);
+                            name = user.get(3);
+                            System.out.println("Bem vindo" + name);
                         }
                     }
                 }
@@ -171,8 +174,11 @@ public class CSVAcesso extends TelaInicial {
                 AboutDialog dlg = new AboutDialog(new JFrame(), "Aviso", "Usuário ou senha inválidos!");
                 System.out.println("Usuário ou senha inválidos!");
             }
-            return checkLogin;
+            return new String[] {checkLogin, name};
         }
+        
+
+
 
         /**
          * Main driver program.

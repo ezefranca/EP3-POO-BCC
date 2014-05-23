@@ -14,9 +14,11 @@ public class TelaMedico extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaMedico
+     * @param nome
      */
-    public TelaMedico() {
+    public TelaMedico(String nome) {
         initComponents();
+        jLabel2.setText(jLabel2.getText() + " " + nome);
     }
 
     /**
@@ -47,7 +49,7 @@ public class TelaMedico extends javax.swing.JFrame {
 
         jLabel1.setText("Lista de Pacientes");
 
-        jLabel2.setText("Seja bem vindo Dr. *****");
+        jLabel2.setText("Seja bem vindo Dr");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,7 +114,7 @@ public class TelaMedico extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMedico().setVisible(true);
+                new TelaMedico("pop").setVisible(true);
             }
         });
     }
