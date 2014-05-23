@@ -9,10 +9,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Protuario {
+
     private Writer fw;
 
     /**
@@ -24,7 +26,7 @@ public class Protuario {
     public void gravar(String usuario, String data, String hora) {
 
         try {
-            fw = new FileWriter("protuario.csv",true);
+            fw = new FileWriter("protuario.csv", true);
         } catch (IOException ex) {
             Logger.getLogger(CSVGravar.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -36,15 +38,19 @@ public class Protuario {
         pw.print(data);
         pw.print(",");
         pw.println(hora);
-        
+
         //Flush
         pw.flush();
 
     }
-    
-    public void ler(String paciente) {
 
-    
+    public ArrayList<String> ler(String paciente) {
+        ArrayList<String> protuario = new ArrayList<String>();
+        protuario.add("A");
+        protuario.add("B");
+        protuario.add("C");
+
+        return protuario;
     }
 
 }

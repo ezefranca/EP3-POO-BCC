@@ -6,11 +6,16 @@
 
 package classes;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author ezefranca
  */
 public class TelaProtuario extends javax.swing.JFrame {
+    DefaultListModel<String> model;
+    ArrayList<String> protuarioPaciente;
 
     /**
      * Creates new form TelaProtuario
@@ -18,9 +23,16 @@ public class TelaProtuario extends javax.swing.JFrame {
      */
     public TelaProtuario(String paciente) {
         Protuario protuario = new Protuario();
-        protuario.ler(paciente);
+        protuarioPaciente = protuario.ler(paciente);
         System.out.println("Lendo protuario de " + paciente);
         initComponents();
+        jLabel1.setText("Visualizando protuário do paciente: " + paciente);
+        model = new DefaultListModel<>();
+        for (String protuarioPaciente1 : protuarioPaciente) {
+            model.addElement(protuarioPaciente1);
+        }
+        jList1.setModel(model);
+        jList1.setSelectedIndex(0);
     }
 
     private TelaProtuario() {
@@ -56,23 +68,20 @@ public class TelaProtuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(jLabel1)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(83, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(71, 71, 71)
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addGap(122, 122, 122))
         );
 
         pack();
