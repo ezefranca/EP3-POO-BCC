@@ -116,7 +116,10 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
+        ArrayList<String> allMedicos = null;
+        ArrayList<String> allDentistas = null;
+        
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         String userDados[] = acesso.searchLogin(jTextField1, this.jPasswordField1);
