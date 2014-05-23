@@ -1,8 +1,9 @@
 Type,User,Password,Name
 Medico,jsmith,1111,John Smith
 Medico,mjones,2222,Mary Jones
+Medico,jpinto,1111,Jacinto Pinto
 Dentista,pjames,3333,Paul James
-Dentista,efranca,4444,Ezequiel Franca
+Dentista,ezefranca,4444,Ezequiel Franca
 Enfermeiro,sara,5555,Sara Roberts
 Enfermeiro,paulo,6666,Paulo Henrique
 Paciente,thomas,7777,Thomas Turbano
