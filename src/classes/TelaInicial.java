@@ -116,10 +116,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        ArrayList<String> allMedicos = null;
-        ArrayList<String> allDentistas = null;
-        
+
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         String userDados[] = acesso.searchLogin(jTextField1, this.jPasswordField1);
@@ -167,7 +164,7 @@ public class TelaInicial extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+          /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
