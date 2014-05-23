@@ -157,7 +157,7 @@ public class CSVAcesso extends TelaInicial {
             String name = "";
             for (int i = 0; i < alData.size(); i++) {
                 ArrayList<String> user = alData.get(i);
-                for (int j = 1; j < 2; j++) {
+                for (int j = 1; j < 2; j++) {  
                     if (jTextField1.getText().equals(user.get(j))) {
                         char[] cPassword = JPasswordField1.getPassword();
                         String sPassword = String.valueOf(cPassword);
@@ -175,6 +175,25 @@ public class CSVAcesso extends TelaInicial {
                 System.out.println("Usuário ou senha inválidos!");
             }
             return new String[] {checkLogin, name};
+        }
+        
+        public ArrayList<String> pegarPacientes(){
+            System.out.println("Pegando pacientes");
+            ArrayList<String> pacientes = new ArrayList<>();
+            int j = 0;
+            for (int i = 0; i < alData.size(); i++) {
+                ArrayList<String> user = alData.get(i);
+                    //Para pegar todos pacientes
+                    if (user.get(0).equals("Paciente")){
+                        pacientes.add(j,user.get(3));
+                        System.out.println(user.get(3));
+                        j++;
+                    }
+            }
+            if (pacientes.isEmpty()) {
+                 System.out.println("Nenhum paciente!");
+            }
+            return pacientes;
         }
         
 

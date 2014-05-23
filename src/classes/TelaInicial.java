@@ -8,6 +8,7 @@ package classes;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -115,12 +116,16 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        ArrayList<String> allMedicos = null;
+        ArrayList<String> allDentistas = null;
+        
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         
-       
-
+        ArrayList<String> allPacientes = acesso.pegarPacientes();
         
+       
         String userDados[] = acesso.searchLogin(jTextField1, this.jPasswordField1);
         System.out.println(userDados[0]);
         switch (userDados[0]) {
@@ -132,7 +137,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 paciente.setVisible(true);
                 break;
             case "Medico":
-                TelaMedico medico = new TelaMedico(userDados[1]);
+                TelaMedico medico = new TelaMedico(userDados[1], allPacientes);
                 medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
                 medico.pack();
                 this.setVisible(false);
