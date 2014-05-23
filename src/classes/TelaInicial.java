@@ -116,28 +116,21 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        ArrayList<String> allMedicos = null;
-        ArrayList<String> allDentistas = null;
-        
+
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
-        
-        ArrayList<String> allPacientes = acesso.pegarPacientes();
-        
-       
         String userDados[] = acesso.searchLogin(jTextField1, this.jPasswordField1);
         System.out.println(userDados[0]);
         switch (userDados[0]) {
             case "Paciente":
-                TelaPaciente paciente = new TelaPaciente();
+                TelaPaciente paciente = new TelaPaciente(userDados[1], acesso.pegarMedicos(), acesso.pegarDentistas());
                 paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
                 paciente.pack();
                 this.setVisible(false);
                 paciente.setVisible(true);
                 break;
             case "Medico":
-                TelaMedico medico = new TelaMedico(userDados[1], allPacientes);
+                TelaMedico medico = new TelaMedico(userDados[1], acesso.pegarPacientes());
                 medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
                 medico.pack();
                 this.setVisible(false);

@@ -196,6 +196,44 @@ public class CSVAcesso extends TelaInicial {
             return pacientes;
         }
         
+         public ArrayList<String> pegarMedicos(){
+            System.out.println("Pegando medicos");
+            ArrayList<String> pacientes = new ArrayList<>();
+            int j = 0;
+            for (int i = 0; i < alData.size(); i++) {
+                ArrayList<String> user = alData.get(i);
+                    //Para pegar todos pacientes
+                    if (user.get(0).equals("Medico")){
+                        pacientes.add(j,user.get(3));
+                        System.out.println(user.get(3));
+                        j++;
+                    }
+            }
+            if (pacientes.isEmpty()) {
+                 System.out.println("Nenhum medico!");
+            }
+            return pacientes;
+        }
+         
+          public ArrayList<String> pegarDentistas(){
+            System.out.println("Pegando pacientes");
+            ArrayList<String> pacientes = new ArrayList<>();
+            int j = 0;
+            for (int i = 0; i < alData.size(); i++) {
+                ArrayList<String> user = alData.get(i);
+                    //Para pegar todos pacientes
+                    if (user.get(0).equals("Dentista")){
+                        pacientes.add(j,user.get(3));
+                        System.out.println(user.get(3));
+                        j++;
+                    }
+            }
+            if (pacientes.isEmpty()) {
+                 System.out.println("Nenhum dentista!");
+            }
+            return pacientes;
+        }
+        
 
 
 
