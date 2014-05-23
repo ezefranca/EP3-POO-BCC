@@ -216,7 +216,7 @@ public class CSVAcesso extends TelaInicial {
         }
          
           public ArrayList<String> pegarDentistas(){
-            System.out.println("Pegando pacientes");
+            System.out.println("Pegando Dentistas");
             ArrayList<String> pacientes = new ArrayList<>();
             int j = 0;
             for (int i = 0; i < alData.size(); i++) {
