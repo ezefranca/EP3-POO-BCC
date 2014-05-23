@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package classes;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
 /**
@@ -14,18 +14,25 @@ import javax.swing.JList;
  * @author ezefranca
  */
 public class TelaMedico extends javax.swing.JFrame {
-    private final JList listaPacientes;
+
+    DefaultListModel<String> model;
 
     /**
      * Creates new form TelaMedico
+     *
      * @param nome
      * @param pacientes
      */
     public TelaMedico(String nome, ArrayList<String> pacientes) {
         initComponents();
         jLabel2.setText(jLabel2.getText() + " " + nome);
-        listaPacientes = new JList(pacientes.toArray());
-        jList2 = listaPacientes;
+        model = new DefaultListModel<>();
+        for (String paciente : pacientes) {
+            model.addElement(paciente);
+        }
+        jList2.setModel(model);
+        jList2.setSelectedIndex(0);
+
     }
 
     /**
