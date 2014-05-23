@@ -6,13 +6,8 @@
 
 package classes;
 
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.JFormattedTextField;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -70,6 +65,11 @@ public class TelaPaciente extends javax.swing.JFrame {
         jFormattedTextField1.setText("20/04/2014");
 
         jButton1.setText("Agendar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Seja bem vindo paciente:");
 
@@ -159,6 +159,15 @@ public class TelaPaciente extends javax.swing.JFrame {
         jList1.setModel(model);
         jList1.setSelectedIndex(0);
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CSVGravar salvar = new CSVGravar();
+        String data = jFormattedTextField1.getText();
+        String medico = jList1.getSelectedValue().toString();
+        String hora = "10";
+        salvar.gravar(medico,data, hora);
+        System.out.println(salvar.toString());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
