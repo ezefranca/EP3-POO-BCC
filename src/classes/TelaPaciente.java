@@ -252,12 +252,10 @@ public class TelaPaciente extends javax.swing.JFrame {
         String medico = jList1.getSelectedValue().toString();
         String hora = jComboBox2.getSelectedItem().toString();
         String paciente = localNome;
-        CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
-        ler.parse();
         ////
         String checkLogin = "";
         String name = "";
-        for (ArrayList<String> user : ler.retornarTudo()) {
+        for (ArrayList<String> user : salvar.ler(paciente)) {
             for (int j = 0; j < 2; j++) {
                 if (medico.equals(user.get(j))) {
                     if (data.equals(user.get(j + 1))) {

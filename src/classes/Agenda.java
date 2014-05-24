@@ -29,7 +29,7 @@ public class Agenda {
     public void gravar(String medico, String data, String hora, String paciente) {
 
         try {
-            fw = new FileWriter("historicoMedico.csv", true);
+            fw = new FileWriter(arquivo, true);
         } catch (IOException ex) {
             Logger.getLogger(CSVGravar.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -38,7 +38,7 @@ public class Agenda {
         //Grava usuario,data,hora em uma nova linha
         pw.print(medico + "," + data + "," + hora + "," + paciente + "\n");
         pw.flush();
-
+        
         //Flush
         pw.flush();
 
