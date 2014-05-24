@@ -32,14 +32,7 @@ public class CSVGravar {
         PrintWriter pw = new PrintWriter(fw);
 
         //Grava usuario,data,hora em uma nova linha
-        pw.print(medico);
-        pw.print(",");
-        pw.print(data);
-        pw.print(",");
-        pw.println(hora);
-        pw.print(",");
-        pw.print(paciente);
-        //Flush
+        pw.print(medico + "," + data + "," + hora + "," + paciente + "\n");
         pw.flush();
 
     }

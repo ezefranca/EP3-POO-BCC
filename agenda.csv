@@ -1,4 +1,3 @@
-medico,data,hora,paciente
-Medico1,01/01/14,08:00
-,Paciente2John Smith,01/01/14,08:00
-,Paciente2
+Medico,01/01/14,08:00,Paciente2
+Medico1,01/01/14,08:00,Paciente2
+Mary Jones,01/01/14,08:00,Paciente2
