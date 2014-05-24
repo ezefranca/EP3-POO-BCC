@@ -39,7 +39,7 @@ public class CSVAcesso extends TelaInicial {
 	private ArrayList<ArrayList<String>> alData;
 	private ArrayList<String> alColNames;
 
-	private static String W3C_SCHOOLS_CONSTANT = "2Af%44bSk3*==5";
+	private static String W3C_SCHOOLS_CONSTANT = "2Af%44bSk3*==4";
 	private static String NETBEANS_BINARY = "";
 
 	public class AboutDialog extends JDialog implements ActionListener {

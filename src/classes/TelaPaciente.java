@@ -9,7 +9,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JFormattedTextField;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -55,6 +58,7 @@ public class TelaPaciente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        caixaAviso = new javax.swing.JDialog();
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -69,6 +73,17 @@ public class TelaPaciente extends javax.swing.JFrame {
         jFormattedTextField1 = new javax.swing.JFormattedTextField(format);
         jSeparator1 = new javax.swing.JSeparator();
         jToolBar1 = new javax.swing.JToolBar();
+
+        javax.swing.GroupLayout caixaAvisoLayout = new javax.swing.GroupLayout(caixaAviso.getContentPane());
+        caixaAviso.getContentPane().setLayout(caixaAvisoLayout);
+        caixaAvisoLayout.setHorizontalGroup(
+            caixaAvisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        caixaAvisoLayout.setVerticalGroup(
+            caixaAvisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 200));
@@ -220,11 +235,51 @@ public class TelaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Boolean ocupado = false;
         CSVGravar salvar = new CSVGravar();
         String data = jFormattedTextField1.getText();
         String medico = jList1.getSelectedValue().toString();
-        String hora = jFormattedTextField1.getText();
-        //salvar.gravar(medico, data, hora);
+        String hora = jComboBox2.getSelectedItem().toString();
+        CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
+        ler.parse();
+        ////
+        String checkLogin = "";
+        String name = "";
+        for (ArrayList<String> user : ler.retornarTudo()) {
+            for (int j = 0; j < 2; j++) {
+                if (medico.equals(user.get(j))) {
+                    if (data.equals(user.get(j + 1))) {
+                        if (hora.equals(user.get(j + 2))) {
+                            if (!caixaAviso.isVisible()) {
+                                ocupado = true;
+                                JPanel messagePane = new JPanel();
+                                messagePane.add(new JLabel("Data ocupada, escolha outra!"));
+                                System.out.println("Data ocupada, escolha outra!");
+                                caixaAviso.setBounds(300, 300, 250, 250);
+                                caixaAviso.setContentPane(messagePane);
+                                caixaAviso.setTitle("AVISO");
+                                caixaAviso.setLocationRelativeTo(this);
+                                caixaAviso.setVisible(true);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (!ocupado) {
+            JPanel messagePane = new JPanel();
+            messagePane.add(new JLabel("Consulta Marcada com Sucesso!"));
+            System.out.println("Consulta Marcada");
+            caixaAviso.setBounds(300, 300, 250, 250);
+            caixaAviso.setContentPane(messagePane);
+            caixaAviso.setTitle("AVISO");
+            caixaAviso.setLocationRelativeTo(this);
+            caixaAviso.setVisible(true);
+        }
+        ////
+
+        salvar.gravar(medico, data, hora);
         //System.out.println(salvar.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -273,6 +328,7 @@ public class TelaPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog caixaAviso;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;

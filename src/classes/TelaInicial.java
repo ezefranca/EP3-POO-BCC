@@ -118,7 +118,6 @@ public class TelaInicial extends javax.swing.JFrame {
                 paciente.setDefaultCloseOperation(TelaPaciente.EXIT_ON_CLOSE);
                 this.setVisible(false);
                 paciente.setVisible(true);
-                System.out.println("LLLLALALALALALA");
                 break;
             case "Medico":
                 TelaMedico medico = new TelaMedico(userDados[1], acesso.pegarPacientes(), userDados[0]);
