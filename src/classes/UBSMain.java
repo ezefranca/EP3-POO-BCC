@@ -19,7 +19,7 @@ public class UBSMain {
         TelaInicial tela = new TelaInicial();
                 
         tela.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);  
-        tela.pack();  
+        tela.setSize(800,600);
         tela.setVisible(true);
         
     }

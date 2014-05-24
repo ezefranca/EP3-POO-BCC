@@ -15,6 +15,8 @@ import javax.swing.DefaultListModel;
 public class TelaMedico extends javax.swing.JFrame {
 
     DefaultListModel<String> model;
+    private String typerUser;
+    private final String localNome;
 
     /**
      * Creates new form TelaMedico
@@ -22,7 +24,9 @@ public class TelaMedico extends javax.swing.JFrame {
      * @param nome
      * @param pacientes
      */
-    public TelaMedico(String nome, ArrayList<String> pacientes) {
+    public TelaMedico(String nome, ArrayList<String> pacientes, String type) {
+        typerUser = type;
+        localNome = nome;
         initComponents();
         jLabel2.setText(jLabel2.getText() + " " + nome);
         model = new DefaultListModel<>();
@@ -53,6 +57,9 @@ public class TelaMedico extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(200, 200));
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setText("Lista de Pacientes");
 
@@ -111,7 +118,7 @@ public class TelaMedico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaProtuario prot = new TelaProtuario(jList2.getSelectedValue().toString());
+        TelaProtuario prot = new TelaProtuario(localNome, jList2.getSelectedValue().toString(), typerUser);
         prot.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

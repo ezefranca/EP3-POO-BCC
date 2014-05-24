@@ -1,4 +1,8 @@
 Type,User,Password,Name
+Medico,1,1,Medico1
+Paciente,2,2,Paciente2
+Dentista,3,3,Dentista
+Enfermeiro,4,4,Enfermeiro4
 Medico,jsmith,1111,John Smith
 Medico,mjones,2222,Mary Jones
 Dentista,pjames,3333,Paul James

@@ -45,6 +45,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema UBS - Paulo e Ezequiel");
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(102, 102, 102));
+        setLocation(new java.awt.Point(200, 200));
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
 
         jTextField1.setText("Usuário");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,32 +75,29 @@ public class TelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(197, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(276, 276, 276))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(225, 225, 225))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(250, 250, 250))))
+                .addGap(349, 349, 349)
+                .addComponent(jButton1)
+                .addContainerGap(372, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(293, 293, 293)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel1)
-                .addGap(52, 52, 52)
+                .addGap(90, 90, 90)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(28, 28, 28)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addComponent(jButton1)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("EP-3, Paulo e Ezequiel");
@@ -112,29 +114,29 @@ public class TelaInicial extends javax.swing.JFrame {
         System.out.println(userDados[0]);
         switch (userDados[0]) {
             case "Paciente":
-                TelaPaciente paciente = new TelaPaciente(userDados[1], acesso.pegarMedicos(), acesso.pegarDentistas());
-                paciente.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-                paciente.pack();
+                TelaPaciente paciente = new TelaPaciente(userDados[1], acesso.pegarMedicos(), acesso.pegarDentistas(), userDados[0]);
+                paciente.setDefaultCloseOperation(TelaPaciente.EXIT_ON_CLOSE);
                 this.setVisible(false);
                 paciente.setVisible(true);
+                System.out.println("LLLLALALALALALA");
                 break;
             case "Medico":
-                TelaMedico medico = new TelaMedico(userDados[1], acesso.pegarPacientes());
-                medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                TelaMedico medico = new TelaMedico(userDados[1], acesso.pegarPacientes(), userDados[0]);
+                medico.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 medico.pack();
                 this.setVisible(false);
                 medico.setVisible(true);
                 break;
             case "Dentista":
-                TelaDentista dentista = new TelaDentista();
-                dentista.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                TelaDentista dentista = new TelaDentista(userDados[1], acesso.pegarPacientes(), userDados[0]);
+                dentista.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 dentista.pack();
                 this.setVisible(false);
                 dentista.setVisible(true);
                 break;
             case "Enfermeiro":
-                TelaEnfermeiro enfermeiro = new TelaEnfermeiro();
-                enfermeiro.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                TelaEnfermeiro enfermeiro = new TelaEnfermeiro(userDados[1], acesso.pegarPacientes(), userDados[0]);
+                //enfermeiro.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
                 enfermeiro.pack();
                 this.setVisible(false);
                 enfermeiro.setVisible(true);

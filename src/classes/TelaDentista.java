@@ -6,17 +6,28 @@
 
 package classes;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author ezefranca
  */
 public class TelaDentista extends javax.swing.JFrame {
+    private final String typerUser;
+    private final String localNome;
 
     /**
      * Creates new form TelaDentista
      */
-    public TelaDentista() {
+    public TelaDentista(String nome, ArrayList<String> pacientes, String type) {
+        typerUser = type;
+        localNome = nome;
         initComponents();
+    }
+
+    private TelaDentista() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -31,6 +42,9 @@ public class TelaDentista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(200, 200));
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setText("Bem vindo Dentista, Dr. *****");
 
