@@ -17,22 +17,23 @@ public class CSVGravar {
 
     /**
      *
-     * @param medico
-     * @param data
-     * @param paciente
-     * @param hora
+     * @param param1
+     * @param param2
+     * @param param4
+     * @param param3
+     * @param arquivo
      */
-    public void gravar(String medico, String data, String hora, String paciente) {
+    public void gravar(String param1, String param2, String param3, String param4, String arquivo) {
 
         try {
-            fw = new FileWriter("agenda.csv", true);
+            fw = new FileWriter(arquivo, true);
         } catch (IOException ex) {
             Logger.getLogger(CSVGravar.class.getName()).log(Level.SEVERE, null, ex);
         }
         PrintWriter pw = new PrintWriter(fw);
 
-        //Grava usuario,data,hora em uma nova linha
-        pw.print(medico + "," + data + "," + hora + "," + paciente + "\n");
+        //Grava usuario,param2,param3 em uma nova linha
+        pw.print(param1 + "," + param2 + "," + param3 + "," + param4 + "\n");
         pw.flush();
 
     }
