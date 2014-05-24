@@ -15,7 +15,8 @@ import javax.swing.DefaultListModel;
  */
 public class TelaProtuario extends javax.swing.JFrame {
     DefaultListModel<String> model;
-    ArrayList<String> protuarioPaciente;
+    ArrayList<ArrayList<String>> protuarioPaciente;
+    String[] cabecalho = {"Nome", "Dia", "Atendido pelo Médico:"};
 
     /**
      * Creates new form TelaProtuario
@@ -28,9 +29,22 @@ public class TelaProtuario extends javax.swing.JFrame {
         initComponents();
         jLabel1.setText("Visualizando protuário do paciente: " + paciente);
         model = new DefaultListModel<>();
-        for (String protuarioPaciente1 : protuarioPaciente) {
-            model.addElement(protuarioPaciente1);
+        
+        model.addElement("Histórico Médico");
+        for(int i = 0; i < protuarioPaciente.size();i++){
+            
+            for(int j= 0; j < protuarioPaciente.get(i).size();j++){
+                if(protuarioPaciente.get(i).get(0).equals(paciente)){
+                    if(j == 0){
+                    model.addElement(" ");
+                    model.addElement("Atendimento:");
+                    model.addElement("--------------");
+                    }
+                    model.addElement(cabecalho[j] + " " + protuarioPaciente.get(i).get(j));
+                }
+            }
         }
+  
         jList1.setModel(model);
         jList1.setSelectedIndex(0);
     }

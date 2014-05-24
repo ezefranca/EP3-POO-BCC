@@ -12,6 +12,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 public class Protuario {
 
@@ -44,13 +45,14 @@ public class Protuario {
 
     }
 
-    public ArrayList<String> ler(String paciente) {
-        ArrayList<String> protuario = new ArrayList<String>();
-        protuario.add("A");
-        protuario.add("B");
-        protuario.add("C");
-
-        return protuario;
+    public ArrayList<ArrayList<String>> ler(String paciente) {
+        ArrayList<ArrayList<String>> protuario = new ArrayList<>();
+ 
+        CSVAcesso csv = new CSVAcesso("protuario.csv", "true");
+        csv.parse();
+        csv.toString();
+        System.out.println(csv);
+        return csv.retornarTudo();
     }
 
 }

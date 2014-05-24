@@ -184,6 +184,10 @@ public class CSVAcesso extends TelaInicial {
                 //return "respeito";
                 return "b";
 	}
+        
+    public ArrayList<ArrayList<String>> retornarTudo(){
+        return alData;
+    }
     /**
      *
      * @param jTextField1
@@ -275,6 +279,7 @@ public class CSVAcesso extends TelaInicial {
             return dentistas;
         }
 
+    
 	/**
 	 * Main driver program.
 	 * 
@@ -287,8 +292,7 @@ public class CSVAcesso extends TelaInicial {
 			javax.swing.JPasswordField JPasswordField1) {
 
 		if (args.length != 2) {
-			System.out
-					.println("usage: java CsvParser [full path filename] [true|false header row]");
+			System.out.println("usage: java CsvParser [full path filename] [true|false header row]");
 			return;
 		}
 
