@@ -14,19 +14,59 @@ import javax.swing.DefaultListModel;
  * @author ezefranca
  */
 public class TelaEnfermeiro extends javax.swing.JFrame {
-    private final String localNome;
-    private final String typerUser;
+    private String localNome;
+    private String typeUser;
+    private DefaultListModel<String> model;
+    private ArrayList<ArrayList<String>> agendaTotal;
+    private DefaultListModel<String> modelLista1;
 
     /**
      * Creates new form TelaEnfermeiro
      * @param nome
      * @param pacientes
-     * @param type
+     * @param permissao
      */
-    public TelaEnfermeiro(String nome, ArrayList<String> pacientes, String type) {
-        typerUser = type;
+    public TelaEnfermeiro(String nome, ArrayList<String> pacientes,String permissao) {
         localNome = nome;
+        typeUser = permissao;
+        localNome = nome;
+       // Protuario protuario = new Protuario();
         initComponents();
+        
+        modelLista1 = new DefaultListModel<>();
+        for (String paciente : pacientes) {
+            modelLista1.addElement(paciente);
+        }
+        jList2.setModel(modelLista1);
+        jList2.setSelectedIndex(0);
+        
+        System.out.println("Lendo consultas de " + nome);
+        
+      
+        model = new DefaultListModel<>();
+       
+        CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
+        ler.parse();
+        agendaTotal = ler.retornarTudo();
+        
+        
+        
+        
+        model.addElement("Consultas Médicas marcadas");
+        for (ArrayList<String> agendaPaciente1 : agendaTotal) {
+            for (int j = 0; j < agendaPaciente1.size(); j++) {
+                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                    if(j == 0){
+                        model.addElement(" ");
+                        model.addElement("Consulta:");
+                        model.addElement("--------------");
+                    }
+                    model.addElement(agendaPaciente1.get(j));
+                }
+            }
+        }
+        jListaConsultas.setModel(model);
+        jListaConsultas.setSelectedIndex(0);
     }
 
     private TelaEnfermeiro() {
@@ -43,6 +83,14 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListaConsultas = new javax.swing.JList();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 200));
@@ -51,25 +99,131 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
 
         jLabel2.setText("Seja bem vindo Enfermeiro(a) *****");
 
+        jListaConsultas.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jListaConsultas);
+
+        jList2.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList2MouseClicked(evt);
+            }
+        });
+        jList2.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList2ValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList1);
+
+        jTextField1.setToolTipText("");
+        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(180, 180, 180))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel2)
-                .addContainerGap(405, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList2ValueChanged
+//        model.addElement("Consultas Médicas marcadas");
+//        for (ArrayList<String> agendaPaciente1 : agendaTotal) {
+//            for (int j = 0; j < agendaPaciente1.size(); j++) {
+//                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+//                    if(j == 0){
+//                        model.addElement(" ");
+//                        model.addElement("Consulta:");
+//                        model.addElement("--------------");
+//                    }
+//                    model.addElement(agendaPaciente1.get(j));
+//                }
+//            }
+//        }
+//        jListaConsultas.setModel(model);
+//        jListaConsultas.setSelectedIndex(0);
+    }//GEN-LAST:event_jList2ValueChanged
+
+    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
+        DefaultListModel listModel = (DefaultListModel) jListaConsultas.getModel();
+        listModel.removeAllElements();
+        Boolean temConsulta = false;
+        
+        model.addElement("Consultas Médicas marcadas");
+        for (ArrayList<String> agendaPaciente1 : agendaTotal) {
+            for (int j = 0; j < agendaPaciente1.size(); j++) {
+                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                    if(j == 0 && temConsulta == false){
+                        //model.addElement(" ");
+                        //model.addElement("Consulta:");
+                        model.addElement("Tem consultas marcadas");
+                        temConsulta = true;
+                        break;
+                    }
+                    //model.addElement(agendaPaciente1.get(j));
+                }
+            }
+        }
+         if(temConsulta == false){
+              //model.addElement(" ");
+              //model.addElement("Consulta:");
+              model.addElement("Paciente não Tem consultas marcadas");        
+          }
+        //jListaConsultas.setModel(model);
+        //jListaConsultas.setSelectedIndex(0);
+    }//GEN-LAST:event_jList2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -100,6 +254,7 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaEnfermeiro().setVisible(true);
             }
@@ -108,5 +263,13 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JList jList1;
+    private javax.swing.JList jList2;
+    private javax.swing.JList jListaConsultas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

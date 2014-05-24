@@ -16,13 +16,14 @@ public class TelaMedico extends javax.swing.JFrame {
 
     DefaultListModel<String> model;
     private String typerUser;
-    private final String localNome;
+    private String localNome;
 
     /**
      * Creates new form TelaMedico
      *
      * @param nome
      * @param pacientes
+     * @param type
      */
     public TelaMedico(String nome, ArrayList<String> pacientes, String type) {
         typerUser = type;
