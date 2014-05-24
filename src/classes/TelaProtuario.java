@@ -15,11 +15,14 @@ import javax.swing.DefaultListModel;
  */
 public class TelaProtuario extends javax.swing.JFrame  {
     DefaultListModel<String> model;
+    DefaultListModel<String> modelHistorico;
     ArrayList<ArrayList<String>> protuarioPaciente;
     String[] cabecalho = {"Nome", "Dia", "Atendido pelo Médico:"};
     String typeUser;
     String localPaciente;
     private String localNome;
+    private ArrayList<ArrayList<String>> historicoPaciente;
+    
 
     /**
      * Creates new form TelaProtuario
@@ -39,7 +42,7 @@ public class TelaProtuario extends javax.swing.JFrame  {
         jLabel1.setText("Visualizando protuário do paciente: " + paciente);
         model = new DefaultListModel<>();
         
-        model.addElement("Histórico Médico");
+        model.addElement("Histórico de Consultas");
         for(int i = 0; i < protuarioPaciente.size();i++){
             
             for(int j= 0; j < protuarioPaciente.get(i).size();j++){
@@ -53,8 +56,31 @@ public class TelaProtuario extends javax.swing.JFrame  {
                 }
             }
         }
-        jList1.setModel(model);
-        jList1.setSelectedIndex(0);
+        jHistoricoConsultas.setModel(model);
+        jHistoricoConsultas.setSelectedIndex(0);
+        
+        
+        Historico historico = new Historico();
+        historicoPaciente = historico.ler(paciente);
+        initComponents();
+        botaoEditar.setEnabled(false);
+        jLabel2.setText("Visualizando histórico do paciente: " + paciente);
+        modelHistorico = new DefaultListModel<>();
+        
+        modelHistorico.addElement("Histórico Médico");
+        for(int i = 0; i < historicoPaciente.size();i++){
+            for(int j= 0; j < historicoPaciente.get(i).size();j++){
+                if(historicoPaciente.get(i).get(0).equals(paciente)){
+                    System.out.println("cururu entrou no if");
+                    
+                    modelHistorico.addElement(historicoPaciente.get(i).get(j));
+                }
+            }
+        }
+        jHistoricoMedico.setModel(modelHistorico);
+        jHistoricoMedico.setSelectedIndex(0);
+        
+        
     }
 
     private TelaProtuario() {
@@ -74,10 +100,13 @@ public class TelaProtuario extends javax.swing.JFrame  {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jHistoricoConsultas = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         botaoEditar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jHistoricoMedico = new javax.swing.JList();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -94,12 +123,12 @@ public class TelaProtuario extends javax.swing.JFrame  {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jHistoricoConsultas.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jHistoricoConsultas);
 
         jLabel1.setText("jLabel1");
 
@@ -111,6 +140,15 @@ public class TelaProtuario extends javax.swing.JFrame  {
         });
 
         botaoEditar.setText("Editar");
+
+        jHistoricoMedico.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jHistoricoMedico);
+
+        jLabel2.setText("jLabel2");
 
         jMenu2.setText("Protuário");
 
@@ -130,30 +168,44 @@ public class TelaProtuario extends javax.swing.JFrame  {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(botaoEditar)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(380, 380, 380)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botaoEditar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(25, 25, 25))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(291, 291, 291))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(54, 54, 54)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(9, 9, 9)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
                 .addComponent(botaoEditar)
                 .addGap(81, 81, 81))
         );
@@ -165,7 +217,6 @@ public class TelaProtuario extends javax.swing.JFrame  {
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         String userDados[] = {typeUser, localNome};
-        System.out.println("CANJICALALALA" + userDados[0]);
         switch (userDados[0]) {
             case "Paciente":
                 TelaPaciente paciente = new TelaPaciente(userDados[1], acesso.pegarMedicos(), acesso.pegarDentistas(), userDados[0]);
@@ -237,8 +288,10 @@ public class TelaProtuario extends javax.swing.JFrame  {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JList jHistoricoConsultas;
+    private javax.swing.JList jHistoricoMedico;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList jList1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -246,6 +299,7 @@ public class TelaProtuario extends javax.swing.JFrame  {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 
 }

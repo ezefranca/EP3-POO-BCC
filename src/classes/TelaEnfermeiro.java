@@ -8,34 +8,34 @@ package classes;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
  * @author ezefranca
  */
 public class TelaEnfermeiro extends javax.swing.JFrame {
+
     private String localNome;
     private String typeUser;
     private DefaultListModel<String> model;
     private ArrayList<ArrayList<String>> agendaTotal;
     private DefaultListModel<String> modelLista1;
     private boolean temConsulta;
-    private final String arquivo = "informacoesMedicas.csv";
+   
 
     /**
      * Creates new form TelaEnfermeiro
+     *
      * @param nome
      * @param pacientes
      * @param permissao
      */
-    public TelaEnfermeiro(String nome, ArrayList<String> pacientes,String permissao) {
+    public TelaEnfermeiro(String nome, ArrayList<String> pacientes, String permissao) {
         localNome = nome;
         typeUser = permissao;
         localNome = nome;
         temConsulta = false;
-       // Protuario protuario = new Protuario();
+        // Protuario protuario = new Protuario();
         initComponents();
         
         modelLista1 = new DefaultListModel<>();
@@ -47,9 +47,8 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
         
         System.out.println("Lendo consultas de " + nome);
         
-      
         model = new DefaultListModel<>();
-       
+        
         CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
         ler.parse();
         agendaTotal = ler.retornarTudo();
@@ -58,7 +57,7 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
         for (ArrayList<String> agendaPaciente1 : agendaTotal) {
             for (int j = 0; j < agendaPaciente1.size(); j++) {
                 if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
-                    if(j == 0 && temConsulta == false){
+                    if (j == 0 && temConsulta == false) {
                         //model.addElement(" ");
                         //model.addElement("Consulta:");
                         model.addElement("Tem consultas marcadas");
@@ -69,15 +68,15 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
                 }
             }
         }
-         if(temConsulta == false){
+        if (temConsulta == false) {
               //model.addElement(" ");
-              //model.addElement("Consulta:");
-              model.addElement("Paciente não Tem consultas marcadas");        
-          }
-         jListaConsultas.setModel(model);
-         jButton1.setVisible(temConsulta);
+            //model.addElement("Consulta:");
+            model.addElement("Paciente não Tem consultas marcadas");            
+        }
+        jListaConsultas.setModel(model);
+        jButton1.setVisible(temConsulta);
     }
-
+    
     private TelaEnfermeiro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -247,7 +246,7 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
         for (ArrayList<String> agendaPaciente1 : agendaTotal) {
             for (int j = 0; j < agendaPaciente1.size(); j++) {
                 if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
-                    if(j == 0 && temConsulta == false){
+                    if (j == 0 && temConsulta == false) {
                         //model.addElement(" ");
                         //model.addElement("Consulta:");
                         model.addElement("Tem consultas marcadas");
@@ -258,29 +257,32 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
                 }
             }
         }
-         if(temConsulta == false){
+        if (temConsulta == false) {
               //model.addElement(" ");
-              //model.addElement("Consulta:");
-              model.addElement("Paciente não Tem consultas marcadas");        
-          }
+            //model.addElement("Consulta:");
+            model.addElement("Paciente não Tem consultas marcadas");            
+        }
         jListaConsultas.setModel(model);
         //jListaConsultas.setSelectedIndex(0);
-         jButton1.setVisible(temConsulta);
+        jButton1.setVisible(temConsulta);
     }//GEN-LAST:event_jList2MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          Boolean ocupado = false;
-        CSVGravar salvar = new CSVGravar();
+        Boolean ocupado = false;
+        Historico salvar = new Historico();
         String peso = campoPeso.getText();
         String pressao = campoPressao.getText();
         String informacoes = campoInformacoes.getText();
         String paciente = jList2.getSelectedValue().toString();
+        
 //        CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
 //        ler.parse();
-       
-            salvar.gravar(paciente, pressao, peso, informacoes, arquivo);
-         
-            System.out.println("Informacoes Salvas");
+        
+        salvar.gravar(paciente, pressao, peso, informacoes);
+        campoPeso.setText("");
+        campoInformacoes.setText("");
+        campoPressao.setText("");
+        System.out.println("Informacoes Salvas");
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

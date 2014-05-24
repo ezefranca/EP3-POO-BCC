@@ -27,7 +27,6 @@ public class TelaPaciente extends javax.swing.JFrame {
     private String nomeLocal;
     private String typeUser;
     private String localNome;
-    private final String arquivo = "agenda.csv";
 
     /**
      * Creates new form TelaCadastro
@@ -248,7 +247,7 @@ public class TelaPaciente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Boolean ocupado = false;
-        CSVGravar salvar = new CSVGravar();
+        Agenda salvar = new Agenda();
         String data = jFormattedTextField1.getText();
         String medico = jList1.getSelectedValue().toString();
         String hora = jComboBox2.getSelectedItem().toString();
@@ -281,7 +280,7 @@ public class TelaPaciente extends javax.swing.JFrame {
             }
         }
         if (!ocupado) {
-            salvar.gravar(medico, data, hora, paciente, arquivo);
+            salvar.gravar(medico, data, hora, paciente);
             JPanel messagePane = new JPanel();
             messagePane.add(new JLabel("Consulta Marcada com Sucesso!"));
             System.out.println("Consulta Marcada");
