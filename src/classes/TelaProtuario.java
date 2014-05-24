@@ -67,12 +67,16 @@ public class TelaProtuario extends javax.swing.JFrame  {
         modelHistorico = new DefaultListModel<>();
         
         modelHistorico.addElement("Histórico Médico");
+         modelHistorico.addElement("Nome" + " | " + "Pressão" + " | " + "Peso" + " | " + "Informações");
+                   
         for(int i = 0; i < historicoPaciente.size();i++){
             for(int j= 0; j < historicoPaciente.get(i).size();j++){
                 if(historicoPaciente.get(i).get(0).equals(paciente)){
                     System.out.println("cururu entrou no if");
                     
-                    modelHistorico.addElement(historicoPaciente.get(i).get(j));
+                    modelHistorico.addElement(historicoPaciente.get(i).get(0) + " | " + historicoPaciente.get(i).get(1) + " | " + historicoPaciente.get(i).get(2) + " | " +historicoPaciente.get(i).get(3));
+                   
+                    break;
                 }
             }
         }
