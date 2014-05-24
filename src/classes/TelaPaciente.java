@@ -9,7 +9,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -240,6 +239,7 @@ public class TelaPaciente extends javax.swing.JFrame {
         String data = jFormattedTextField1.getText();
         String medico = jList1.getSelectedValue().toString();
         String hora = jComboBox2.getSelectedItem().toString();
+        String paciente = localNome;
         CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
         ler.parse();
         ////
@@ -253,9 +253,9 @@ public class TelaPaciente extends javax.swing.JFrame {
                             if (!caixaAviso.isVisible()) {
                                 ocupado = true;
                                 JPanel messagePane = new JPanel();
-                                messagePane.add(new JLabel("Data ocupada, escolha outra!"));
+                                messagePane.add(new JLabel("Data/horário ocupado, escolha outros!"));
                                 System.out.println("Data ocupada, escolha outra!");
-                                caixaAviso.setBounds(300, 300, 250, 250);
+                                caixaAviso.setBounds(300, 300, 250, 150);
                                 caixaAviso.setContentPane(messagePane);
                                 caixaAviso.setTitle("AVISO");
                                 caixaAviso.setLocationRelativeTo(this);
@@ -268,18 +268,20 @@ public class TelaPaciente extends javax.swing.JFrame {
             }
         }
         if (!ocupado) {
+            salvar.gravar(medico, data, hora, paciente);
             JPanel messagePane = new JPanel();
             messagePane.add(new JLabel("Consulta Marcada com Sucesso!"));
             System.out.println("Consulta Marcada");
-            caixaAviso.setBounds(300, 300, 250, 250);
+            caixaAviso.setBounds(300, 300, 250, 100);
             caixaAviso.setContentPane(messagePane);
-            caixaAviso.setTitle("AVISO");
+            caixaAviso.setTitle("Sucesso");
             caixaAviso.setLocationRelativeTo(this);
             caixaAviso.setVisible(true);
+            
         }
         ////
 
-        salvar.gravar(medico, data, hora);
+        
         //System.out.println(salvar.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
