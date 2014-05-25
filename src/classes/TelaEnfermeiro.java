@@ -42,8 +42,8 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
         for (String paciente : pacientes) {
             modelLista1.addElement(paciente);
         }
-        jList2.setModel(modelLista1);
-        jList2.setSelectedIndex(0);
+        listaPacientes.setModel(modelLista1);
+        listaPacientes.setSelectedIndex(0);
         
         System.out.println("Lendo consultas de " + nome);
         
@@ -56,7 +56,7 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
         model.addElement("Consultas Médicas marcadas");
         for (ArrayList<String> agendaPaciente1 : agendaTotal) {
             for (int j = 0; j < agendaPaciente1.size(); j++) {
-                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                if (agendaPaciente1.get(3).equals(listaPacientes.getSelectedValue().toString())) {
                     if (j == 0 && temConsulta == false) {
                         //model.addElement(" ");
                         //model.addElement("Consulta:");
@@ -73,8 +73,8 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
             //model.addElement("Consulta:");
             model.addElement("Paciente não Tem consultas marcadas");            
         }
-        jListaConsultas.setModel(model);
-        jButton1.setVisible(temConsulta);
+        listaConsultas.setModel(model);
+        btnSalvar.setVisible(temConsulta);
     }
     
     private TelaEnfermeiro() {
@@ -90,17 +90,17 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        labelSaudacao = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListaConsultas = new javax.swing.JList();
+        listaConsultas = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
+        listaPacientes = new javax.swing.JList();
         campoPressao = new javax.swing.JTextField();
         campoPeso = new javax.swing.JTextField();
         labelMenu = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        labelPeso = new javax.swing.JLabel();
+        labelPressao = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JButton();
         campoInformacoes = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,45 +108,45 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jLabel2.setText("Seja bem vindo Enfermeiro(a) *****");
+        labelSaudacao.setText("Seja bem vindo Enfermeiro(a) *****");
 
-        jListaConsultas.setModel(new javax.swing.AbstractListModel() {
+        listaConsultas.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jListaConsultas);
+        jScrollPane1.setViewportView(listaConsultas);
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        listaPacientes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+        listaPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList2MouseClicked(evt);
+                listaPacientesMouseClicked(evt);
             }
         });
-        jList2.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        listaPacientes.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jList2ValueChanged(evt);
+                listaPacientesValueChanged(evt);
             }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(listaPacientes);
 
         campoPressao.setToolTipText("");
         campoPressao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         labelMenu.setText("Adicione as informações de peso e pressão");
 
-        jLabel3.setText("Peso");
+        labelPeso.setText("Peso");
 
-        jLabel4.setText("Pressão");
+        labelPressao.setText("Pressão");
 
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
@@ -160,14 +160,14 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSaudacao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
+                        .addGap(219, 219, 219)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelMenu)
                             .addGroup(layout.createSequentialGroup()
@@ -177,34 +177,34 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
+                                                .addComponent(labelPeso)
                                                 .addGap(66, 66, 66))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(campoPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(47, 47, 47)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(campoPressao, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(327, 327, 327)
-                        .addComponent(jButton1)))
+                                            .addComponent(labelPressao)
+                                            .addComponent(campoPressao, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(107, 107, 107)
+                                .addComponent(btnSalvar)))))
                 .addContainerGap(233, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel2)
-                .addGap(28, 28, 28)
+                .addGap(42, 42, 42)
+                .addComponent(labelSaudacao)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(51, 51, 51)
                 .addComponent(labelMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(labelPeso)
+                    .addComponent(labelPressao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,14 +212,14 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(campoInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addComponent(btnSalvar)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList2ValueChanged
+    private void listaPacientesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaPacientesValueChanged
 //        model.addElement("Consultas Médicas marcadas");
 //        for (ArrayList<String> agendaPaciente1 : agendaTotal) {
 //            for (int j = 0; j < agendaPaciente1.size(); j++) {
@@ -235,17 +235,17 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
 //        }
 //        jListaConsultas.setModel(model);
 //        jListaConsultas.setSelectedIndex(0);
-    }//GEN-LAST:event_jList2ValueChanged
+    }//GEN-LAST:event_listaPacientesValueChanged
 
-    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
-        DefaultListModel listModel = (DefaultListModel) jListaConsultas.getModel();
+    private void listaPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPacientesMouseClicked
+        DefaultListModel listModel = (DefaultListModel) listaConsultas.getModel();
         listModel.removeAllElements();
         temConsulta = false;
         
         model.addElement("Consultas Médicas marcadas");
         for (ArrayList<String> agendaPaciente1 : agendaTotal) {
             for (int j = 0; j < agendaPaciente1.size(); j++) {
-                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                if (agendaPaciente1.get(3).equals(listaPacientes.getSelectedValue().toString())) {
                     if (j == 0 && temConsulta == false) {
                         //model.addElement(" ");
                         //model.addElement("Consulta:");
@@ -262,18 +262,18 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
             //model.addElement("Consulta:");
             model.addElement("Paciente não Tem consultas marcadas");            
         }
-        jListaConsultas.setModel(model);
+        listaConsultas.setModel(model);
         //jListaConsultas.setSelectedIndex(0);
-        jButton1.setVisible(temConsulta);
-    }//GEN-LAST:event_jList2MouseClicked
+        btnSalvar.setVisible(temConsulta);
+    }//GEN-LAST:event_listaPacientesMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         Boolean ocupado = false;
         Historico salvar = new Historico();
         String peso = campoPeso.getText();
         String pressao = campoPressao.getText();
         String informacoes = campoInformacoes.getText();
-        String paciente = jList2.getSelectedValue().toString();
+        String paciente = listaPacientes.getSelectedValue().toString();
         
 //        CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
 //        ler.parse();
@@ -284,7 +284,7 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
         campoPressao.setText("");
         System.out.println("Informacoes Salvas");
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,17 +323,17 @@ public class TelaEnfermeiro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JTextField campoInformacoes;
     private javax.swing.JTextField campoPeso;
     private javax.swing.JTextField campoPressao;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JList jList2;
-    private javax.swing.JList jListaConsultas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelMenu;
+    private javax.swing.JLabel labelPeso;
+    private javax.swing.JLabel labelPressao;
+    private javax.swing.JLabel labelSaudacao;
+    private javax.swing.JList listaConsultas;
+    private javax.swing.JList listaPacientes;
     // End of variables declaration//GEN-END:variables
 }

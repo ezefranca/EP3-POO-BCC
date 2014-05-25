@@ -39,7 +39,7 @@ public class TelaProtuario extends javax.swing.JFrame  {
         System.out.println("Lendo protuario de " + paciente);
         initComponents();
         botaoEditar.setEnabled(false);
-        jLabel1.setText("Consultas" + paciente);
+        labelConsulta.setText("Consultas" + paciente);
         model = new DefaultListModel<>();
         
         model.addElement("Histórico de Consultas");
@@ -56,14 +56,14 @@ public class TelaProtuario extends javax.swing.JFrame  {
                 }
             }
         }
-        jHistoricoConsultas.setModel(model);
-        jHistoricoConsultas.setSelectedIndex(0);
+        listaConsultas.setModel(model);
+        listaConsultas.setSelectedIndex(0);
         
         
         Historico historico = new Historico();
         historicoPaciente = historico.ler(paciente);
         botaoEditar.setEnabled(false);
-        jLabel2.setText("Histórico" + paciente);
+        labelHistorico.setText("Histórico" + paciente);
         modelHistorico = new DefaultListModel<>();
         
         modelHistorico.addElement("Histórico Médico");
@@ -80,8 +80,8 @@ public class TelaProtuario extends javax.swing.JFrame  {
                 }
             }
         }
-        jHistoricoMedico.setModel(modelHistorico);
-        jHistoricoMedico.setSelectedIndex(0);
+        listaHistorico.setModel(modelHistorico);
+        listaHistorico.setSelectedIndex(0);
         
         
     }
@@ -103,14 +103,14 @@ public class TelaProtuario extends javax.swing.JFrame  {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jHistoricoConsultas = new javax.swing.JList();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        listaConsultas = new javax.swing.JList();
+        labelConsulta = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
         botaoEditar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jHistoricoMedico = new javax.swing.JList();
-        jLabel2 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        listaHistorico = new javax.swing.JList();
+        labelHistorico = new javax.swing.JLabel();
+        menuProtuario = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
@@ -126,32 +126,32 @@ public class TelaProtuario extends javax.swing.JFrame  {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jHistoricoConsultas.setModel(new javax.swing.AbstractListModel() {
+        listaConsultas.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jHistoricoConsultas);
+        jScrollPane1.setViewportView(listaConsultas);
 
-        jLabel1.setText("jLabel1");
+        labelConsulta.setText("jLabel1");
 
-        jButton1.setText("Voltar para a tela principal");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("Voltar para a tela principal");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
         botaoEditar.setText("Editar");
 
-        jHistoricoMedico.setModel(new javax.swing.AbstractListModel() {
+        listaHistorico.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jHistoricoMedico);
+        jScrollPane2.setViewportView(listaHistorico);
 
-        jLabel2.setText("jLabel2");
+        labelHistorico.setText("jLabel2");
 
         jMenu2.setText("Protuário");
 
@@ -163,9 +163,9 @@ public class TelaProtuario extends javax.swing.JFrame  {
         });
         jMenu2.add(jMenu5);
 
-        jMenuBar1.add(jMenu2);
+        menuProtuario.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuProtuario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +173,7 @@ public class TelaProtuario extends javax.swing.JFrame  {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnVoltar)
                 .addGap(291, 291, 291))
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
@@ -182,22 +182,22 @@ public class TelaProtuario extends javax.swing.JFrame  {
                         .addGap(345, 345, 345)
                         .addComponent(botaoEditar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(labelConsulta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(labelHistorico))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton1)
+                .addComponent(btnVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(labelConsulta, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelHistorico, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,7 +210,7 @@ public class TelaProtuario extends javax.swing.JFrame  {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         String userDados[] = {typeUser, localNome};
@@ -246,7 +246,7 @@ public class TelaProtuario extends javax.swing.JFrame  {
                 System.out.println("Usuario nao possui um tipo correto");
                 break;
         }         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
         System.out.println("apertou o menu");
@@ -284,19 +284,19 @@ public class TelaProtuario extends javax.swing.JFrame  {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEditar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JList jHistoricoConsultas;
-    private javax.swing.JList jHistoricoMedico;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelConsulta;
+    private javax.swing.JLabel labelHistorico;
+    private javax.swing.JList listaConsultas;
+    private javax.swing.JList listaHistorico;
+    private javax.swing.JMenuBar menuProtuario;
     // End of variables declaration//GEN-END:variables
 
 }

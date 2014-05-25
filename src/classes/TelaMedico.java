@@ -34,24 +34,24 @@ public class TelaMedico extends javax.swing.JFrame {
         temConsulta = false;
         initComponents();
         
-        jLabel2.setText("Bem vindo Dr." + " " + nome);
+        labelSaudacao.setText("Bem vindo Dr." + " " + nome);
         modelLista1 = new DefaultListModel<>();
         for (String paciente : pacientes) {
             modelLista1.addElement(paciente);
         }
-        jList2.setModel(modelLista1);
-        jList2.setSelectedIndex(0);
+        listaPacientes.setModel(modelLista1);
+        listaPacientes.setSelectedIndex(0);
 
         /////
         model = new DefaultListModel<>();
         Agenda agenda = new Agenda();     
-        agendaTotal = agenda.ler(jList2.getSelectedValue().toString());
+        agendaTotal = agenda.ler(listaPacientes.getSelectedValue().toString());
         model.addElement("Consultas Médicas marcadas");
         
         for (ArrayList<String> agendaPaciente1 : agendaTotal) {
             for (int j = 0; j < agendaPaciente1.size(); j++) {
                 System.out.println(agendaPaciente1.get(3));
-                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                if (agendaPaciente1.get(3).equals(listaPacientes.getSelectedValue().toString())) {
                     if (agendaPaciente1.get(0).equals(nome)) {
                         if (temConsulta == false) {
                         
@@ -66,8 +66,8 @@ public class TelaMedico extends javax.swing.JFrame {
         if (temConsulta == false) {
             model.addElement("Paciente não tem consultas marcadas com você");
         }
-          jListaConsultas.setModel(model);
-          jbtnInfo.setVisible(temConsulta);
+          listaConsultas.setModel(model);
+          btnQuestionario.setVisible(temConsulta);
     }
     /////
 
@@ -81,15 +81,15 @@ public class TelaMedico extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelPacientes = new javax.swing.JLabel();
+        labelSaudacao = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
+        listaPacientes = new javax.swing.JList();
+        btnProtuario = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListaConsultas = new javax.swing.JList();
-        jbtnInfo = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        listaConsultas = new javax.swing.JList();
+        btnQuestionario = new javax.swing.JButton();
+        labelAgenda = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -98,40 +98,40 @@ public class TelaMedico extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jLabel1.setText("Escolha um Paciente");
+        labelPacientes.setText("Escolha um Paciente");
 
-        jLabel2.setText("Seja bem vindo Dr");
+        labelSaudacao.setText("Seja bem vindo Dr");
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        listaPacientes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jList2.setName("jListaPacientes"); // NOI18N
-        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+        listaPacientes.setName("jListaPacientes"); // NOI18N
+        listaPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList2MouseClicked(evt);
+                listaPacientesMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(listaPacientes);
 
-        jButton1.setText("Mostrar Protuário");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnProtuario.setText("Mostrar Protuário");
+        btnProtuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnProtuarioActionPerformed(evt);
             }
         });
 
-        jListaConsultas.setModel(new javax.swing.AbstractListModel() {
+        listaConsultas.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jListaConsultas);
+        jScrollPane1.setViewportView(listaConsultas);
 
-        jbtnInfo.setText("Fazer questionário");
+        btnQuestionario.setText("Fazer questionário");
 
-        jLabel3.setText("Status da Agenda do Paciente");
+        labelAgenda.setText("Status da Agenda do Paciente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,21 +140,21 @@ public class TelaMedico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
+                    .addComponent(labelSaudacao)
+                    .addComponent(labelPacientes))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnProtuario)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbtnInfo)
-                            .addComponent(jLabel3)
+                            .addComponent(btnQuestionario)
+                            .addComponent(labelAgenda)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(82, 82, 82))))
         );
@@ -162,41 +162,41 @@ public class TelaMedico extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel2)
+                .addComponent(labelSaudacao)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
+                    .addComponent(labelPacientes)
+                    .addComponent(labelAgenda))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(btnProtuario))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbtnInfo)))
+                        .addComponent(btnQuestionario)))
                 .addContainerGap(267, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaProtuario prot = new TelaProtuario(localNome, jList2.getSelectedValue().toString(), typerUser);
+    private void btnProtuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProtuarioActionPerformed
+        TelaProtuario prot = new TelaProtuario(localNome, listaPacientes.getSelectedValue().toString(), typerUser);
         prot.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnProtuarioActionPerformed
 
-    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
-        DefaultListModel listModel = (DefaultListModel) jListaConsultas.getModel();
+    private void listaPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPacientesMouseClicked
+        DefaultListModel listModel = (DefaultListModel) listaConsultas.getModel();
         listModel.removeAllElements();
         temConsulta = false;
 
         model.addElement("Consultas Médicas marcadas");
         for (ArrayList<String> agendaPaciente1 : agendaTotal) {
             for (int j = 0; j < agendaPaciente1.size(); j++) {
-                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                if (agendaPaciente1.get(3).equals(listaPacientes.getSelectedValue().toString())) {
                     if (agendaPaciente1.get(0).equals(localNome)) {
                         if (j == 0 && temConsulta == false) {
                         //model.addElement(" ");
@@ -215,10 +215,10 @@ public class TelaMedico extends javax.swing.JFrame {
             //model.addElement("Consulta:");
             model.addElement("Paciente não tem consultas marcadas com você");
         }
-        jListaConsultas.setModel(model);
+        listaConsultas.setModel(model);
         //jListaConsultas.setSelectedIndex(0);
-        jbtnInfo.setVisible(temConsulta);
-    }//GEN-LAST:event_jList2MouseClicked
+        btnQuestionario.setVisible(temConsulta);
+    }//GEN-LAST:event_listaPacientesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -257,15 +257,15 @@ public class TelaMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JList jList2;
-    private javax.swing.JList jListaConsultas;
+    private javax.swing.JButton btnProtuario;
+    private javax.swing.JButton btnQuestionario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jbtnInfo;
+    private javax.swing.JLabel labelAgenda;
+    private javax.swing.JLabel labelPacientes;
+    private javax.swing.JLabel labelSaudacao;
+    private javax.swing.JList listaConsultas;
+    private javax.swing.JList listaPacientes;
     // End of variables declaration//GEN-END:variables
 }

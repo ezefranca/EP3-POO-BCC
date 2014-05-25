@@ -9,7 +9,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -42,7 +41,7 @@ public class TelaPaciente extends javax.swing.JFrame {
         initComponents();
         System.out.println("LLLLALALALALALA");
         nomeLocal = nome;
-        jLabel1.setText("Bem vindo " + nome);
+        labelSaudacao.setText("Bem vindo " + nome);
         localMedicos = medicos;
         localDentistas = dentistas;
 
@@ -58,21 +57,19 @@ public class TelaPaciente extends javax.swing.JFrame {
     private void initComponents() {
 
         caixaAviso = new javax.swing.JDialog();
-        jComboBox1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        cboxOpcao = new javax.swing.JComboBox();
+        btnAgendar = new javax.swing.JButton();
+        labelSaudacao = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        listaMedicos = new javax.swing.JList();
+        labelOpcao = new javax.swing.JLabel();
+        labelData = new javax.swing.JLabel();
+        btnProtuario = new javax.swing.JButton();
+        labelHora = new javax.swing.JLabel();
         DateFormat format = new SimpleDateFormat("yyyy--MMMM--dd");
-        jFormattedTextField1 = new javax.swing.JFormattedTextField(format);
+        campoData = new javax.swing.JFormattedTextField(format);
         jSeparator1 = new javax.swing.JSeparator();
-        jToolBar1 = new javax.swing.JToolBar();
-        jButton3 = new javax.swing.JButton();
+        btnAgenda = new javax.swing.JButton();
 
         javax.swing.GroupLayout caixaAvisoLayout = new javax.swing.GroupLayout(caixaAviso.getContentPane());
         caixaAviso.getContentPane().setLayout(caixaAvisoLayout);
@@ -91,52 +88,50 @@ public class TelaPaciente extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Medico", "Dentista"}));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cboxOpcao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Medico", "Dentista"}));
+        cboxOpcao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cboxOpcaoActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Agendar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgendar.setText("Agendar");
+        btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAgendarActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Seja bem vindo paciente:");
+        labelSaudacao.setText("Seja bem vindo paciente:");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        listaMedicos.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaMedicos);
 
-        jLabel2.setText("Você quer agendar com um:");
+        labelOpcao.setText("Você quer agendar com um:");
 
-        jLabel4.setText("Selecione a data:");
+        labelData.setText("Selecione a data:");
 
-        jButton2.setText("Visualizar protuário");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnProtuario.setText("Visualizar protuário");
+        btnProtuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnProtuarioActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Selecione a Hora");
+        labelHora.setText("Selecione a Hora");
 
-        jFormattedTextField1.setText("01/01/14");
+        campoData.setText("01/01/14");
 
-        jToolBar1.setRollover(true);
+        cboxHora.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08:00", "09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08:00", "09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00" }));
-
-        jButton3.setText("Visualizar minha agenda");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnAgenda.setText("Visualizar minha agenda");
+        btnAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnAgendaActionPerformed(evt);
             }
         });
 
@@ -144,49 +139,47 @@ public class TelaPaciente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(257, 257, 257)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addComponent(labelData)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cboxHora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnAgendar)
                                 .addGap(335, 335, 335))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cboxOpcao, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(260, 260, 260))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelOpcao)
                                 .addGap(305, 305, 305))
                             .addComponent(jSeparator1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 25, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(labelSaudacao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnProtuario, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -195,43 +188,40 @@ public class TelaPaciente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel1)
+                        .addComponent(labelSaudacao)
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelOpcao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3))
+                        .addComponent(cboxOpcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jButton2)
+                        .addComponent(btnProtuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAgenda)))
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(labelData)
+                    .addComponent(labelHora))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboxHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(jButton1)
-                .addGap(74, 74, 74)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnAgendar)
+                .addGap(99, 99, 99))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        jLabel3.setText("Escolher um " + jComboBox1.getSelectedItem().toString());
-        if (null != jComboBox1.getSelectedItem().toString()) {
-            switch (jComboBox1.getSelectedItem().toString()) {
+    private void cboxOpcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxOpcaoActionPerformed
+        labelOpcao.setText("Escolher um " + cboxOpcao.getSelectedItem().toString());
+        if (null != cboxOpcao.getSelectedItem().toString()) {
+            switch (cboxOpcao.getSelectedItem().toString()) {
                 case "Dentista":
                     local = localDentistas;
                     break;
@@ -247,16 +237,16 @@ public class TelaPaciente extends javax.swing.JFrame {
         for (String local1 : local) {
             model.addElement(local1);
         }
-        jList1.setModel(model);
-        jList1.setSelectedIndex(0);
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        listaMedicos.setModel(model);
+        listaMedicos.setSelectedIndex(0);
+    }//GEN-LAST:event_cboxOpcaoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
         Boolean ocupado = false;
         Agenda salvar = new Agenda();
-        String data = jFormattedTextField1.getText();
-        String medico = jList1.getSelectedValue().toString();
-        String hora = jComboBox2.getSelectedItem().toString();
+        String data = campoData.getText();
+        String medico = listaMedicos.getSelectedValue().toString();
+        String hora = cboxHora.getSelectedItem().toString();
         String paciente = localNome;
         ////
         String checkLogin = "";
@@ -299,21 +289,21 @@ public class TelaPaciente extends javax.swing.JFrame {
 
         
         //System.out.println(salvar.toString());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAgendarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnProtuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProtuarioActionPerformed
         TelaProtuario prot = new TelaProtuario(localNome, nomeLocal, typeUser);
         prot.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
         this.setVisible(false);
         prot.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnProtuarioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendaActionPerformed
         TelaConsultas consult = new TelaConsultas(localNome, nomeLocal, typeUser);
         consult.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
         this.setVisible(false);
         consult.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnAgendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,22 +343,20 @@ public class TelaPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgenda;
+    private javax.swing.JButton btnAgendar;
+    private javax.swing.JButton btnProtuario;
     private javax.swing.JDialog caixaAviso;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
-    private final javax.swing.JComboBox jComboBox2 = new javax.swing.JComboBox();
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JList jList1;
+    private javax.swing.JFormattedTextField campoData;
+    private final javax.swing.JComboBox cboxHora = new javax.swing.JComboBox();
+    private javax.swing.JComboBox cboxOpcao;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel labelData;
+    private javax.swing.JLabel labelHora;
+    private javax.swing.JLabel labelOpcao;
+    private javax.swing.JLabel labelSaudacao;
+    private javax.swing.JList listaMedicos;
     // End of variables declaration//GEN-END:variables
 
 }

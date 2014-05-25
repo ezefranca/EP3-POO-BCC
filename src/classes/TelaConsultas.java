@@ -35,7 +35,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         System.out.println("Lendo consultas de " + paciente);
         initComponents();
        // botaoEditar.setEnabled(false);
-        jLabel1.setText("Visualizando consultas de: " + paciente);
+        labelUsuario.setText("Visualizando consultas de: " + paciente);
         model = new DefaultListModel<>();
        
         CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
@@ -55,8 +55,8 @@ public class TelaConsultas extends javax.swing.JFrame {
                 }
             }
         }
-        jList1.setModel(model);
-        jList1.setSelectedIndex(0);
+        listaConsultas.setModel(model);
+        listaConsultas.setSelectedIndex(0);
     }
 
     private TelaConsultas() {
@@ -74,9 +74,9 @@ public class TelaConsultas extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        listaConsultas = new javax.swing.JList();
+        btnVoltar = new javax.swing.JButton();
+        labelUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 200));
@@ -84,21 +84,21 @@ public class TelaConsultas extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        listaConsultas.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaConsultas);
 
-        jButton1.setText("Voltar para a tela anterior");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("Voltar para a tela anterior");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("jLabel1");
+        labelUsuario.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,19 +111,19 @@ public class TelaConsultas extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(135, 135, 135))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnVoltar)
                         .addGap(272, 272, 272))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(labelUsuario)
                         .addGap(356, 356, 356))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jButton1)
+                .addComponent(btnVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(labelUsuario)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(132, 132, 132))
@@ -132,7 +132,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
         acesso.parse();
         String userDados[] = {typeUser, localNome};
@@ -169,7 +169,7 @@ public class TelaConsultas extends javax.swing.JFrame {
                 System.out.println("Usuario nao possui um tipo correto");
                 break;     
     }                         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,9 +208,9 @@ public class TelaConsultas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JList jList1;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelUsuario;
+    private javax.swing.JList listaConsultas;
     // End of variables declaration//GEN-END:variables
 }
