@@ -130,6 +130,11 @@ public class TelaMedico extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listaConsultas);
 
         btnQuestionario.setText("Fazer questionário");
+        btnQuestionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuestionarioActionPerformed(evt);
+            }
+        });
 
         labelAgenda.setText("Status da Agenda do Paciente");
 
@@ -219,6 +224,11 @@ public class TelaMedico extends javax.swing.JFrame {
         //jListaConsultas.setSelectedIndex(0);
         btnQuestionario.setVisible(temConsulta);
     }//GEN-LAST:event_listaPacientesMouseClicked
+
+    private void btnQuestionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestionarioActionPerformed
+        TelaQuestionario quest = new TelaQuestionario(listaPacientes.getSelectedValue().toString(), localNome);
+        quest.setVisible(true);
+    }//GEN-LAST:event_btnQuestionarioActionPerformed
 
     /**
      * @param args the command line arguments

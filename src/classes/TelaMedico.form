@@ -173,6 +173,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Fazer question&#xe1;rio"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuestionarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelAgenda">
       <Properties>

@@ -224,21 +224,18 @@ public class TelaProtuario extends javax.swing.JFrame  {
             case "Medico":
                 TelaMedico medico = new TelaMedico(userDados[1], acesso.pegarPacientes(), userDados[0]);
                 //medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-                medico.pack();
                 this.setVisible(false);
                 medico.setVisible(true);
                 break;
             case "Dentista":
                 TelaDentista dentista = new TelaDentista(userDados[1], acesso.pegarPacientes(), userDados[0]);
                 //dentista.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-                dentista.pack();
                 this.setVisible(false);
                 dentista.setVisible(true);
                 break;
             case "Enfermeiro":
                 TelaEnfermeiro enfermeiro = new TelaEnfermeiro(userDados[1], acesso.pegarPacientes(), userDados[0]);
                 //enfermeiro.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
-                enfermeiro.pack();
                 this.setVisible(false);
                 enfermeiro.setVisible(true);
                 break;

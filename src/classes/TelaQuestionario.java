@@ -6,17 +6,32 @@
 
 package classes;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ezefranca
  */
 public class TelaQuestionario extends javax.swing.JFrame {
+    String[] questao = {"NÃO","NÃO","NÃO","NÃO"};
+    String localPaciente;
+    private String localNome;
 
     /**
      * Creates new form TelaQuestionario
+     * @param paciente
+     * @param medico
      */
-    public TelaQuestionario() {
+    
+    public TelaQuestionario(String paciente, String medico) {
+        localPaciente = paciente;
+        localNome = medico;
         initComponents();
+    }
+
+    private TelaQuestionario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -28,24 +43,159 @@ public class TelaQuestionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        caixaAviso = new javax.swing.JDialog();
+        ckBox1 = new javax.swing.JCheckBox();
+        ckBox3 = new javax.swing.JCheckBox();
+        ckBox2 = new javax.swing.JCheckBox();
+        ckBox4 = new javax.swing.JCheckBox();
+        btnSalvar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+
+        javax.swing.GroupLayout caixaAvisoLayout = new javax.swing.GroupLayout(caixaAviso.getContentPane());
+        caixaAviso.getContentPane().setLayout(caixaAvisoLayout);
+        caixaAvisoLayout.setHorizontalGroup(
+            caixaAvisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        caixaAvisoLayout.setVerticalGroup(
+            caixaAvisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 200));
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
 
+        ckBox1.setText("Tem histórico familiar ?");
+        ckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckBox1ActionPerformed(evt);
+            }
+        });
+
+        ckBox3.setText("Fez cirurgia recentemente ?");
+        ckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckBox3ActionPerformed(evt);
+            }
+        });
+
+        ckBox2.setText("Toma algum medicamento ?");
+        ckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckBox2ActionPerformed(evt);
+            }
+        });
+
+        ckBox4.setText("Já sofre acidente grave ?");
+        ckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckBox4ActionPerformed(evt);
+            }
+        });
+
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        btnVoltar.setText("Voltar para tela principal");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(311, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ckBox2)
+                            .addComponent(ckBox4)
+                            .addComponent(ckBox3)
+                            .addComponent(ckBox1)
+                            .addComponent(btnVoltar))
+                        .addGap(281, 281, 281))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSalvar)
+                        .addGap(347, 347, 347))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(btnVoltar)
+                .addGap(78, 78, 78)
+                .addComponent(ckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ckBox2)
+                .addGap(13, 13, 13)
+                .addComponent(ckBox3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ckBox4)
+                .addGap(58, 58, 58)
+                .addComponent(btnSalvar)
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckBox1ActionPerformed
+        if(ckBox1.isSelected())
+            questao[0] = "SIM";
+        else questao[0] = "NÃO";
+    }//GEN-LAST:event_ckBox1ActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        Questionario questionario = new Questionario();
+        questionario.gravar(localPaciente, questao);
+        JPanel messagePane = new JPanel();
+                                messagePane.add(new JLabel("Questionário Salvo!"));
+                                System.out.println("Dados Salvo!");
+                                caixaAviso.setBounds(300, 300, 250, 150);
+                                caixaAviso.setContentPane(messagePane);
+                                caixaAviso.setTitle("Dados Salvos com Sucesso!");
+                                caixaAviso.setLocationRelativeTo(this);
+                                caixaAviso.setVisible(true);
+                                btnVoltar.doClick();
+                                
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void ckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckBox2ActionPerformed
+        if(ckBox2.isSelected())
+            questao[1] = "SIM";
+        else questao[1] = "NÃO";
+    }//GEN-LAST:event_ckBox2ActionPerformed
+
+    private void ckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckBox3ActionPerformed
+        if(ckBox3.isSelected())
+            questao[2] = "SIM";
+        else questao[2] = "NÃO";
+    }//GEN-LAST:event_ckBox3ActionPerformed
+
+    private void ckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckBox4ActionPerformed
+        if(ckBox4.isSelected())
+            questao[3] = "SIM";
+        else questao[3] = "NÃO";
+    }//GEN-LAST:event_ckBox4ActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        CSVAcesso acesso = new CSVAcesso("cadastro.csv", "true");
+        acesso.parse();
+        TelaMedico medico = new TelaMedico(localNome, acesso.pegarPacientes(), "Medico");
+                //medico.setDefaultCloseOperation(TelaInicial.EXIT_ON_CLOSE);
+                this.setVisible(false);
+                medico.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -76,6 +226,7 @@ public class TelaQuestionario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaQuestionario().setVisible(true);
             }
@@ -83,5 +234,12 @@ public class TelaQuestionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JDialog caixaAviso;
+    private javax.swing.JCheckBox ckBox1;
+    private javax.swing.JCheckBox ckBox2;
+    private javax.swing.JCheckBox ckBox3;
+    private javax.swing.JCheckBox ckBox4;
     // End of variables declaration//GEN-END:variables
 }
