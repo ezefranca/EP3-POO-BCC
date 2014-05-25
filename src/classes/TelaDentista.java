@@ -41,8 +41,8 @@ public class TelaDentista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        labelSaudacao = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JButton();
         cboxObturacao = new javax.swing.JCheckBox();
         cboxLimpeza = new javax.swing.JCheckBox();
 
@@ -51,23 +51,23 @@ public class TelaDentista extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jLabel1.setText("Bem vindo Dentista, Dr. *****");
+        labelSaudacao.setText("Bem vindo Dentista, Dr. *****");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
-        cboxObturacao.setText("jCheckBox1");
+        cboxObturacao.setText("Obturação");
         cboxObturacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxObturacaoActionPerformed(evt);
             }
         });
 
-        cboxLimpeza.setText("jCheckBox2");
+        cboxLimpeza.setText("Limpeza");
         cboxLimpeza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxLimpezaActionPerformed(evt);
@@ -78,36 +78,37 @@ public class TelaDentista extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(219, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(187, 187, 187))
             .addGroup(layout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cboxLimpeza)
-                    .addComponent(cboxObturacao)
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cboxObturacao)
+                            .addComponent(cboxLimpeza, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSalvar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(labelSaudacao)))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
-                .addGap(86, 86, 86)
+                .addGap(37, 37, 37)
+                .addComponent(labelSaudacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addComponent(cboxObturacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cboxLimpeza)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(104, 104, 104))
+                .addGap(33, 33, 33)
+                .addComponent(btnSalvar)
+                .addGap(89, 89, 89))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         Boolean ocupado = false;
         Historico salvar = new Historico();
         String peso = "-";
@@ -126,7 +127,7 @@ public class TelaDentista extends javax.swing.JFrame {
         
         salvar.gravar("Paciente2", pressao, peso, informacoes);
         System.out.println("Informacoes Salvas");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void cboxObturacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxObturacaoActionPerformed
         // TODO add your handling code here:
@@ -173,9 +174,9 @@ public class TelaDentista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JCheckBox cboxLimpeza;
     private javax.swing.JCheckBox cboxObturacao;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelSaudacao;
     // End of variables declaration//GEN-END:variables
 }
