@@ -16,6 +16,7 @@ import javax.swing.DefaultListModel;
 public class TelaDentista extends javax.swing.JFrame {
     private final String typerUser;
     private final String localNome;
+    private ArrayList<String> listadePacientes;
 
     /**
      * Creates new form TelaDentista
@@ -23,6 +24,7 @@ public class TelaDentista extends javax.swing.JFrame {
     public TelaDentista(String nome, ArrayList<String> pacientes, String type) {
         typerUser = type;
         localNome = nome;
+        listadePacientes = pacientes;
         initComponents();
     }
 
@@ -40,6 +42,9 @@ public class TelaDentista extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        cboxObturacao = new javax.swing.JCheckBox();
+        cboxLimpeza = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 200));
@@ -47,6 +52,27 @@ public class TelaDentista extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setText("Bem vindo Dentista, Dr. *****");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        cboxObturacao.setText("jCheckBox1");
+        cboxObturacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxObturacaoActionPerformed(evt);
+            }
+        });
+
+        cboxLimpeza.setText("jCheckBox2");
+        cboxLimpeza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxLimpezaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,17 +82,59 @@ public class TelaDentista extends javax.swing.JFrame {
                 .addContainerGap(219, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(187, 187, 187))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cboxLimpeza)
+                    .addComponent(cboxObturacao)
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addComponent(cboxObturacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboxLimpeza)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(104, 104, 104))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Boolean ocupado = false;
+        Historico salvar = new Historico();
+        String peso = "-";
+        String pressao = "-";
+        String informacoes = "";
+        
+        if(cboxLimpeza.isSelected())
+        informacoes = informacoes + cboxLimpeza.getText();
+        if(cboxObturacao.isSelected())
+        informacoes = informacoes + cboxObturacao.getText();
+        
+        //String paciente = listaPacientes.getSelectedValue().toString();
+        
+//        CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
+//        ler.parse();
+        
+        salvar.gravar("Paciente2", pressao, peso, informacoes);
+        System.out.println("Informacoes Salvas");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cboxObturacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxObturacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxObturacaoActionPerformed
+
+    private void cboxLimpezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxLimpezaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxLimpezaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,6 +173,9 @@ public class TelaDentista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox cboxLimpeza;
+    private javax.swing.JCheckBox cboxObturacao;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
