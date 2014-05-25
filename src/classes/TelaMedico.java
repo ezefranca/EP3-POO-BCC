@@ -15,8 +15,11 @@ import javax.swing.DefaultListModel;
 public class TelaMedico extends javax.swing.JFrame {
 
     DefaultListModel<String> model;
-    private String typerUser;
-    private String localNome;
+    String typerUser;
+    String localNome;
+    Boolean temConsulta;
+    ArrayList<ArrayList<String>> agendaTotal;
+    DefaultListModel<String> modelLista1;
 
     /**
      * Creates new form TelaMedico
@@ -28,16 +31,45 @@ public class TelaMedico extends javax.swing.JFrame {
     public TelaMedico(String nome, ArrayList<String> pacientes, String type) {
         typerUser = type;
         localNome = nome;
+        temConsulta = false;
         initComponents();
-        jLabel2.setText(jLabel2.getText() + " " + nome);
-        model = new DefaultListModel<>();
+        
+        jLabel2.setText("Bem vindo Dr." + " " + nome);
+        modelLista1 = new DefaultListModel<>();
         for (String paciente : pacientes) {
-            model.addElement(paciente);
+            modelLista1.addElement(paciente);
         }
-        jList2.setModel(model);
+        jList2.setModel(modelLista1);
         jList2.setSelectedIndex(0);
 
+        /////
+        model = new DefaultListModel<>();
+        Agenda agenda = new Agenda();     
+        agendaTotal = agenda.ler(jList2.getSelectedValue().toString());
+        model.addElement("Consultas Médicas marcadas");
+        
+        for (ArrayList<String> agendaPaciente1 : agendaTotal) {
+            for (int j = 0; j < agendaPaciente1.size(); j++) {
+                System.out.println(agendaPaciente1.get(3));
+                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                    if (agendaPaciente1.get(0).equals(nome)) {
+                        if (temConsulta == false) {
+                        
+                            model.addElement("Este Paciente tem consultas marcadas com você");
+                            temConsulta = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (temConsulta == false) {
+            model.addElement("Paciente não tem consultas marcadas com você");
+        }
+          jListaConsultas.setModel(model);
+          jbtnInfo.setVisible(temConsulta);
     }
+    /////
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +86,9 @@ public class TelaMedico extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListaConsultas = new javax.swing.JList();
+        jbtnInfo = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -72,6 +107,11 @@ public class TelaMedico extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         jList2.setName("jListaPacientes"); // NOI18N
+        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList2);
 
         jButton1.setText("Mostrar Protuário");
@@ -81,38 +121,58 @@ public class TelaMedico extends javax.swing.JFrame {
             }
         });
 
+        jListaConsultas.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jListaConsultas);
+
+        jbtnInfo.setText("jButton2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(jLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbtnInfo)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(14, 14, 14))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(290, 290, 290)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(265, 265, 265)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel2)
-                .addGap(41, 41, 41)
+                .addGap(3, 3, 3)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jButton1)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jbtnInfo))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,6 +182,38 @@ public class TelaMedico extends javax.swing.JFrame {
         TelaProtuario prot = new TelaProtuario(localNome, jList2.getSelectedValue().toString(), typerUser);
         prot.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
+        DefaultListModel listModel = (DefaultListModel) jListaConsultas.getModel();
+        listModel.removeAllElements();
+        temConsulta = false;
+
+        model.addElement("Consultas Médicas marcadas");
+        for (ArrayList<String> agendaPaciente1 : agendaTotal) {
+            for (int j = 0; j < agendaPaciente1.size(); j++) {
+                if (agendaPaciente1.get(3).equals(jList2.getSelectedValue().toString())) {
+                    if (agendaPaciente1.get(0).equals(localNome)) {
+                        if (j == 0 && temConsulta == false) {
+                        //model.addElement(" ");
+                            //model.addElement("Consulta:");
+                            model.addElement("Tem consultas marcadas com você");
+                            temConsulta = true;
+                            break;
+                        }
+                    }
+                    //model.addElement(agendaPaciente1.get(j));
+                }
+            }
+        }
+        if (temConsulta == false) {
+            //model.addElement(" ");
+            //model.addElement("Consulta:");
+            model.addElement("Paciente não tem consultas marcadas com você");
+        }
+        jListaConsultas.setModel(model);
+        //jListaConsultas.setSelectedIndex(0);
+        jbtnInfo.setVisible(temConsulta);
+    }//GEN-LAST:event_jList2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -164,7 +256,10 @@ public class TelaMedico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList jList2;
+    private javax.swing.JList jListaConsultas;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton jbtnInfo;
     // End of variables declaration//GEN-END:variables
 }
