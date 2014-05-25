@@ -7,7 +7,6 @@
 package classes;
 
 import java.util.ArrayList;
-import javax.swing.DefaultListModel;
 
 /**
  *
@@ -20,6 +19,9 @@ public class TelaDentista extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaDentista
+     * @param nome
+     * @param pacientes
+     * @param type
      */
     public TelaDentista(String nome, ArrayList<String> pacientes, String type) {
         typerUser = type;
@@ -116,9 +118,9 @@ public class TelaDentista extends javax.swing.JFrame {
         String informacoes = "";
         
         if(cboxLimpeza.isSelected())
-        informacoes = informacoes + cboxLimpeza.getText();
+            informacoes = informacoes + cboxLimpeza.getText();
         if(cboxObturacao.isSelected())
-        informacoes = informacoes + cboxObturacao.getText();
+            informacoes = informacoes + cboxObturacao.getText();
         
         //String paciente = listaPacientes.getSelectedValue().toString();
         

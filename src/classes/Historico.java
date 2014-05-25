@@ -12,7 +12,6 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 
 public class Historico {
      private final String arquivo = "informacoesMedicas.csv";
@@ -21,9 +20,10 @@ public class Historico {
 
     /**
      *
-     * @param usuario
-     * @param data
-     * @param hora
+     * @param paciente
+     * @param pressao
+     * @param peso
+     * @param informacoes
      */
     public void gravar(String paciente, String pressao, String peso, String informacoes) {
 
