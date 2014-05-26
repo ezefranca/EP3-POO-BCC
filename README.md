@@ -48,7 +48,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
       <tbody>
         <tr id="LC2" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L3">3</span>
+            <span id="L2">2</span>
           </td>
           <td>Medico</td>
           <td>takeo1</td>
@@ -57,7 +57,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
         </tr>
         <tr id="LC3" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L4">4</span>
+            <span id="L3">3</span>
           </td>
           <td>Medico</td>
           <td>ueda1</td>
@@ -66,7 +66,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
         </tr>
         <tr id="LC4" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L13">13</span>
+            <span id="L4">4</span>
           </td>
           <td>Dentista</td>
           <td>takeo2</td>
@@ -75,7 +75,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
         </tr>
         <tr id="LC5" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L14">14</span>
+            <span id="L5">5</span>
           </td>
           <td>Dentista</td>
           <td>ueda2</td>
@@ -84,7 +84,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
         </tr>
         <tr id="LC6" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L17">17</span>
+            <span id="L6">6</span>
           </td>
           <td>Enfermeiro</td>
           <td>takeo3</td>
@@ -93,7 +93,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
         </tr>
         <tr id="LC7" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L18">18</span>
+            <span id="L7">7</span>
           </td>
           <td>Enfermeiro</td>
           <td>ueda3</td>
@@ -102,7 +102,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
         </tr>
         <tr id="LC8" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L21">21</span>
+            <span id="L8">8</span>
           </td>
           <td>Paciente</td>
           <td>takeo4</td>
@@ -111,7 +111,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
         </tr>
         <tr id="LC9" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L22">22</span>
+            <span id="L9">9</span>
           </td>
           <td>Paciente</td>
           <td>ueda4</td>
