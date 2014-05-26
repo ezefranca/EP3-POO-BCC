@@ -7,6 +7,7 @@
 package classes;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -16,6 +17,7 @@ public class TelaDentista extends javax.swing.JFrame {
     private final String typerUser;
     private final String localNome;
     private ArrayList<String> listadePacientes;
+    private DefaultListModel<Object> modelLista1;
 
     /**
      * Creates new form TelaDentista
@@ -28,6 +30,13 @@ public class TelaDentista extends javax.swing.JFrame {
         localNome = nome;
         listadePacientes = pacientes;
         initComponents();
+        labelSaudacao.setText("Bem vindo Dr." + " " + nome);
+        modelLista1 = new DefaultListModel<>();
+        for (String paciente : pacientes) {
+            modelLista1.addElement(paciente);
+        }
+        listaPacientes.setModel(modelLista1);
+        listaPacientes.setSelectedIndex(0);
     }
 
     private TelaDentista() {
@@ -47,6 +56,9 @@ public class TelaDentista extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         cboxObturacao = new javax.swing.JCheckBox();
         cboxLimpeza = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaPacientes = new javax.swing.JList();
+        labelPacientes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 200));
@@ -76,6 +88,15 @@ public class TelaDentista extends javax.swing.JFrame {
             }
         });
 
+        listaPacientes.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(listaPacientes);
+
+        labelPacientes.setText("Lista de Pacientes");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,28 +104,39 @@ public class TelaDentista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cboxObturacao)
-                            .addComponent(cboxLimpeza, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSalvar)))
+                        .addGap(266, 266, 266)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cboxObturacao)
+                                    .addComponent(cboxLimpeza, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSalvar)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(labelSaudacao)))
-                .addContainerGap(214, Short.MAX_VALUE))
+                        .addGap(51, 51, 51)
+                        .addComponent(labelSaudacao))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(332, 332, 332)
+                        .addComponent(labelPacientes)))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(44, 44, 44)
                 .addComponent(labelSaudacao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(labelPacientes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(cboxObturacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cboxLimpeza)
-                .addGap(33, 33, 33)
+                .addGap(30, 30, 30)
                 .addComponent(btnSalvar)
-                .addGap(89, 89, 89))
+                .addGap(110, 110, 110))
         );
 
         pack();
@@ -127,7 +159,7 @@ public class TelaDentista extends javax.swing.JFrame {
 //        CSVAcesso ler = new CSVAcesso("agenda.csv", "true");
 //        ler.parse();
         
-        salvar.gravar("Paciente2", pressao, peso, informacoes);
+        salvar.gravar(listaPacientes.getSelectedValue().toString(), pressao, peso, informacoes);
         System.out.println("Informacoes Salvas");
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -179,6 +211,9 @@ public class TelaDentista extends javax.swing.JFrame {
     private javax.swing.JButton btnSalvar;
     private javax.swing.JCheckBox cboxLimpeza;
     private javax.swing.JCheckBox cboxObturacao;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelPacientes;
     private javax.swing.JLabel labelSaudacao;
+    private javax.swing.JList listaPacientes;
     // End of variables declaration//GEN-END:variables
 }

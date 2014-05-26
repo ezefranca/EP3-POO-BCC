@@ -1,5 +1,8 @@
 Type,User,Password,Name
 Medico,1,1,Medico1
+Medico,takeo1,1,Medico Takeo
+Medico,ueda1,1,Medico Ueda
+Medico,1,1,Medico1
 Paciente,2,2,Paciente2
 Dentista,3,3,Dentista
 Enfermeiro,4,4,Enfermeiro4
@@ -7,7 +10,13 @@ Medico,jsmith,1111,John Smith
 Medico,mjones,2222,Mary Jones
 Dentista,pjames,3333,Paul James
 Dentista,efranca,4444,Ezequiel Franca
+Dentista,takeo2,2,Dentista Takeo
+Dentista,ueda2,2,Dentista Ueda
 Enfermeiro,sara,5555,Sara Roberts
 Enfermeiro,paulo,6666,Paulo Henrique
+Enfermeiro,takeo3,3,Enfermeiro Takeo
+Enfermeiro,ueda3,3,Enfermeiro Ueda
 Paciente,thomas,7777,Thomas Turbano
 Paciente,jpinto,8888,Jacinto Pinto
+Paciente,takeo4,4,Paciente Takeo
+Paciente,ueda4,4,Paciente Ueda
