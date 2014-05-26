@@ -29,7 +29,7 @@ O Centro Universitário Senac considera uma infração disciplinar inadmissível
 
 Primeiramente é necessário que tenha instalado o Netbeans em seu computador, recomendado em ambiente windows.
 
-Após a instalação e suponhando que tenha os conhecimentos necessários com a IDE, abra o projeto e o execute.
+Após a instalação, suponhamos que já tenha os conhecimentos necessários com a IDE, deve-se abrir o projeto e executa-lo.
 
 Cada usuário possui um login e senha. Existem alguns usuários previamente cadastrados. Para fins de testes temos os seguintes usuários:
 
