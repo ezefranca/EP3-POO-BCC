@@ -25,7 +25,7 @@ O Centro Universitário Senac considera uma infração disciplinar inadmissível
 
 ### Como posso rodar o projeto localmente?
 
-[![NetBeans](http://www.revista.espiritolivre.org/wp-content/uploads/2013/10/netbeans.png)](https://netbeans.org/download)
+[![NetBeans](http://www.revista.espiritolivre.org/wp-content/uploads/2013/10/netbeans.png)](https://netbeans.org/)
 
 Primeiramente é necessário que tenha instalado o Netbeans em seu computador, recomendado em ambiente windows.
 
@@ -34,13 +34,21 @@ Após a instalação e suponhando que tenha os conhecimentos necessários com a 
 Cada usuário possui um login e senha. Existem alguns usuários previamente cadastrados. Para fins de testes temos os seguintes usuários:
 
 Usuário | Senha | Tipo
+
 takeo1      1       Médico
+
 ueda1       1       Médico
+
 takeo2      2       Dentista
+
 ueda2       2       Dentista
+
 takeo3      3       Enfermeiro
+
 ueda3       3       Enfermeiro
+
 takeo4      4       Paciente
+
 ueda4       4       Paciente
 
 #### Login Paciente
