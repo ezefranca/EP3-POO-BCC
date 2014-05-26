@@ -48,15 +48,6 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
       <tbody>
         <tr id="LC2" class="line">
           <td class="blob-line-nums csv-row-num">
-            <span id="L2">2</span>
-          </td>
-          <td>Medico</td>
-          <td>1</td>
-          <td>1</td>
-          <td>Medico1</td>
-        </tr>
-        <tr id="LC3" class="line">
-          <td class="blob-line-nums csv-row-num">
             <span id="L3">3</span>
           </td>
           <td>Medico</td>
@@ -64,7 +55,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
           <td>1</td>
           <td>Medico Takeo</td>
         </tr>
-        <tr id="LC4" class="line">
+        <tr id="LC3" class="line">
           <td class="blob-line-nums csv-row-num">
             <span id="L4">4</span>
           </td>
@@ -73,79 +64,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
           <td>1</td>
           <td>Medico Ueda</td>
         </tr>
-        <tr id="LC5" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L5">5</span>
-          </td>
-          <td>Medico</td>
-          <td>1</td>
-          <td>1</td>
-          <td>Medico1</td>
-        </tr>
-        <tr id="LC6" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L6">6</span>
-          </td>
-          <td>Paciente</td>
-          <td>2</td>
-          <td>2</td>
-          <td>Paciente2</td>
-        </tr>
-        <tr id="LC7" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L7">7</span>
-          </td>
-          <td>Dentista</td>
-          <td>3</td>
-          <td>3</td>
-          <td>Dentista</td>
-        </tr>
-        <tr id="LC8" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L8">8</span>
-          </td>
-          <td>Enfermeiro</td>
-          <td>4</td>
-          <td>4</td>
-          <td>Enfermeiro4</td>
-        </tr>
-        <tr id="LC9" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L9">9</span>
-          </td>
-          <td>Medico</td>
-          <td>jsmith</td>
-          <td>1111</td>
-          <td>John Smith</td>
-        </tr>
-        <tr id="LC10" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L10">10</span>
-          </td>
-          <td>Medico</td>
-          <td>mjones</td>
-          <td>2222</td>
-          <td>Mary Jones</td>
-        </tr>
-        <tr id="LC11" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L11">11</span>
-          </td>
-          <td>Dentista</td>
-          <td>pjames</td>
-          <td>3333</td>
-          <td>Paul James</td>
-        </tr>
-        <tr id="LC12" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L12">12</span>
-          </td>
-          <td>Dentista</td>
-          <td>efranca</td>
-          <td>4444</td>
-          <td>Ezequiel Franca</td>
-        </tr>
-        <tr id="LC13" class="line">
+        <tr id="LC4" class="line">
           <td class="blob-line-nums csv-row-num">
             <span id="L13">13</span>
           </td>
@@ -154,7 +73,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
           <td>2</td>
           <td>Dentista Takeo</td>
         </tr>
-        <tr id="LC14" class="line">
+        <tr id="LC5" class="line">
           <td class="blob-line-nums csv-row-num">
             <span id="L14">14</span>
           </td>
@@ -163,25 +82,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
           <td>2</td>
           <td>Dentista Ueda</td>
         </tr>
-        <tr id="LC15" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L15">15</span>
-          </td>
-          <td>Enfermeiro</td>
-          <td>sara</td>
-          <td>5555</td>
-          <td>Sara Roberts</td>
-        </tr>
-        <tr id="LC16" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L16">16</span>
-          </td>
-          <td>Enfermeiro</td>
-          <td>paulo</td>
-          <td>6666</td>
-          <td>Paulo Henrique</td>
-        </tr>
-        <tr id="LC17" class="line">
+        <tr id="LC6" class="line">
           <td class="blob-line-nums csv-row-num">
             <span id="L17">17</span>
           </td>
@@ -190,7 +91,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
           <td>3</td>
           <td>Enfermeiro Takeo</td>
         </tr>
-        <tr id="LC18" class="line">
+        <tr id="LC7" class="line">
           <td class="blob-line-nums csv-row-num">
             <span id="L18">18</span>
           </td>
@@ -199,25 +100,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
           <td>3</td>
           <td>Enfermeiro Ueda</td>
         </tr>
-        <tr id="LC19" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L19">19</span>
-          </td>
-          <td>Paciente</td>
-          <td>thomas</td>
-          <td>7777</td>
-          <td>Thomas Turbano</td>
-        </tr>
-        <tr id="LC20" class="line">
-          <td class="blob-line-nums csv-row-num">
-            <span id="L20">20</span>
-          </td>
-          <td>Paciente</td>
-          <td>jpinto</td>
-          <td>8888</td>
-          <td>Jacinto Pinto</td>
-        </tr>
-        <tr id="LC21" class="line">
+        <tr id="LC8" class="line">
           <td class="blob-line-nums csv-row-num">
             <span id="L21">21</span>
           </td>
@@ -226,7 +109,7 @@ Cada usuário possui um login e senha. Existem alguns usuários previamente cada
           <td>4</td>
           <td>Paciente Takeo</td>
         </tr>
-        <tr id="LC22" class="line">
+        <tr id="LC9" class="line">
           <td class="blob-line-nums csv-row-num">
             <span id="L22">22</span>
           </td>
