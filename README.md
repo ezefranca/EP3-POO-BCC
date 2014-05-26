@@ -33,23 +33,75 @@ Após a instalação, suponhamos que já tenha os conhecimentos necessários com
 
 Cada usuário possui um login e senha. Existem alguns usuários previamente cadastrados. Para fins de testes temos os seguintes usuários:
 
-Usuário | Senha | Tipo
-
-takeo1      1       Médico
-
-ueda1       1       Médico
-
-takeo2      2       Dentista
-
-ueda2       2       Dentista
-
-takeo3      3       Enfermeiro
-
-ueda3       3       Enfermeiro
-
-takeo4      4       Paciente
-
-ueda4       4       Paciente
+<table class="js-csv-data csv-data">
+      <thead>
+        <tr id="LC1" class="line">
+          <td class="blob-line-nums csv-row-num">
+            <span id="L1" rel="#L1>">1</span>
+          </td>
+          <th>Medico</th>
+          <th>01/01/14</th>
+          <th>08:00</th>
+          <th>Paciente2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="LC2" class="line">
+          <td class="blob-line-nums csv-row-num">
+            <span id="L2">2</span>
+          </td>
+          <td>Medico1</td>
+          <td>01/01/14</td>
+          <td>08:00</td>
+          <td>Paciente2</td>
+        </tr>
+        <tr id="LC3" class="line">
+          <td class="blob-line-nums csv-row-num">
+            <span id="L3">3</span>
+          </td>
+          <td>Mary Jones</td>
+          <td>01/01/14</td>
+          <td>08:00</td>
+          <td>Paciente2</td>
+        </tr>
+        <tr id="LC4" class="line">
+          <td class="blob-line-nums csv-row-num">
+            <span id="L4">4</span>
+          </td>
+          <td>Dentista</td>
+          <td>01/01/14</td>
+          <td>08:00</td>
+          <td>Paciente2</td>
+        </tr>
+        <tr id="LC5" class="line">
+          <td class="blob-line-nums csv-row-num">
+            <span id="L5">5</span>
+          </td>
+          <td>Ezequiel Franca</td>
+          <td>01/01/14</td>
+          <td>08:00</td>
+          <td>Paciente2</td>
+        </tr>
+        <tr id="LC6" class="line">
+          <td class="blob-line-nums csv-row-num">
+            <span id="L6">6</span>
+          </td>
+          <td>John Smith</td>
+          <td>01/01/14</td>
+          <td>08:00</td>
+          <td>Paciente2</td>
+        </tr>
+        <tr id="LC7" class="line">
+          <td class="blob-line-nums csv-row-num">
+            <span id="L7">7</span>
+          </td>
+          <td>Medico Ueda</td>
+          <td>01/01/14</td>
+          <td>08:00</td>
+          <td>Paciente2</td>
+        </tr>
+      </tbody>
+    </table>
 
 #### Login Paciente
 
