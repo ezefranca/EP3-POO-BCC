@@ -1,25 +1,25 @@
 ### EP3-POO-BCC
-===========
+
 EP3 da disciplina de Linguaguem de Programação Orientada a Objetos
 
 ### Declaração anti-plágio
-============
 
+```
 O GRUPO DECLARA SEREM OS ÚNICOS AUTORES E RESPONSÁVEIS POR ESSE PROGRAMA. TODAS AS PARTES ORIGINAIS DESSE EXERCÍCIO PROGRAMA (EP) FORAM DESENVOLVIDAS E IMPLEMENTADAS POR NÓS SEGUINDO AS INSTRUÇÕES DESSE EP E QUE PORTANTO NÃO CONSTITUEM PLÁGIO. 
 
 DECLARAMOS TAMBÉM QUE SOMOS RESPONSÁVEIS POR TODAS AS CÓPIAS DESSE PROGRAMA E QUE NÃO DISTRIBUIMOS OU FACILITAMOS A SUA DISTRIBUIÇÃO. ESTAMOS CIENTES QUE OS CASOS DE PLÁGIO SÃO PUNIDOS COM NOTA ZERO OU REPROVAÇÃO DIRETA NA DISCIPLINA.
+```
 
 ### Normas do Aluno
-==============
 
+```
 O Centro Universitário Senac considera uma infração disciplinar inadmissível qualquer forma de plágio. Na ocorrência de tais casos, recomenda-se a reprovação do aluno na disciplina, e que o ocorrido seja relatado à Coordenação de Graduação para as devidas providências.
+```
 
 
 ### Desenvolvedores
 
-[![Ezequiel França](https://avatars1.githubusercontent.com/u/3648336?s=400)](https://github.com/ezefranca) | [![Paulo Henrique](https://2.gravatar.com/avatar/85f6a71f0c7043aa321ea6d30d720f55?)](https://github.com/paulo-http)
---- | --- | --- | --- | --- | --- | ---
-[Ezequiel França](https://github.com/ezefranca)| [Paulo Henrique](https://github.com/paulo-http)
+[Ezequiel França](https://github.com/ezefranca) | [Paulo Henrique](https://github.com/paulo-http)
 
 ### Instruções
 
